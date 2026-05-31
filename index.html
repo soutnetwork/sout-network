@@ -132,10 +132,15 @@
   .stat .l{font-family:var(--mono);font-size:.68rem;color:var(--fg-faint);text-transform:uppercase;letter-spacing:.13em;margin-top:7px}
 
   /* ============ MARQUEE ============ */
-  .marquee{border-block:1px solid var(--line);background:var(--bg-2);overflow:hidden;padding:18px 0}
-  .mq-track{display:flex;gap:54px;white-space:nowrap;animation:scroll 30s linear infinite;width:max-content}
-  .mq-track span{font-family:var(--display);font-weight:600;font-size:.98rem;letter-spacing:.02em;color:var(--fg-soft);text-transform:uppercase;display:flex;align-items:center;gap:54px}
-  .mq-track span::after{content:"";width:5px;height:5px;border-radius:50%;background:var(--teal)}
+  .marquee{position:relative;padding:30px 0;background:var(--bg-2);border-block:1px solid var(--line);overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+  .mq-track{display:flex;gap:18px;width:max-content;animation:scroll 34s linear infinite}
+  .marquee:hover .mq-track{animation-play-state:paused}
+  .mq-card{display:flex;align-items:center;gap:12px;padding:14px 22px;border-radius:100px;background:var(--card);border:1px solid var(--line);white-space:nowrap;transition:.35s cubic-bezier(.2,.7,.3,1);cursor:default}
+  .mq-card .dot{width:7px;height:7px;border-radius:50%;background:var(--fg-faint);transition:.35s}
+  .mq-card span{font-family:var(--display);font-weight:600;font-size:.95rem;letter-spacing:.01em;color:var(--fg-soft);transition:.35s}
+  .mq-card:hover{border-color:var(--teal);background:var(--card-2);transform:translateY(-2px);box-shadow:0 14px 34px -14px rgba(0,0,0,.5),0 0 0 4px var(--teal-soft)}
+  .mq-card:hover .dot{background:var(--teal);box-shadow:0 0 0 4px var(--teal-soft)}
+  .mq-card:hover span{color:var(--fg)}
   @keyframes scroll{to{transform:translateX(-50%)}}
 
   /* ============ SECTION ============ */
@@ -159,25 +164,26 @@
   .svc p{margin-top:11px;font-size:.93rem;line-height:1.6;color:var(--fg-soft);flex:1}
   .svc .num{position:absolute;top:26px;inset-inline-end:28px;font-family:var(--mono);font-size:.72rem;color:var(--fg-faint)}
 
-  /* ============ NETWORK (creative platform web) ============ */
+  /* ============ NETWORK (professional orbital map) ============ */
   .network{padding:120px 0;background:var(--bg-2);overflow:hidden;position:relative}
-  .net-stage{position:relative;max-width:1100px;margin:48px auto 0;aspect-ratio:16/10;min-height:420px}
-  .net-rings{position:absolute;inset:0;z-index:0}
+  .net-stage{position:relative;width:100%;max-width:720px;margin:54px auto 0;aspect-ratio:1/1}
   .net-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;z-index:1}
-  .net-line{stroke:var(--line);stroke-width:1.4;fill:none;stroke-dasharray:5 7;animation:dash 22s linear infinite}
-  @keyframes dash{to{stroke-dashoffset:-220}}
-  .net-pulse{fill:var(--teal)}
-  .node{position:absolute;transform:translate(-50%,-50%);z-index:2}
-  .node .bubble{width:var(--sz,108px);height:var(--sz,108px);border-radius:50%;background:var(--plat-bg);border:1px solid var(--line);display:grid;place-items:center;box-shadow:0 18px 40px -16px rgba(0,0,0,.45);transition:.4s cubic-bezier(.2,.7,.3,1);position:relative;overflow:hidden}
-  .node .bubble svg,.node .bubble .lbl{filter:grayscale(1);opacity:.55;transition:.45s}
-  .node:hover .bubble{transform:scale(1.07);border-color:var(--teal);box-shadow:0 22px 50px -16px rgba(0,0,0,.55)}
-  .node:hover .bubble svg,.node:hover .bubble .lbl{filter:grayscale(0);opacity:1}
-  .node .lbl{display:flex;align-items:center;gap:7px;font-weight:700;font-size:.84rem;color:var(--plat-fg)}
-  .center-node{position:absolute;left:30%;top:50%;transform:translate(-50%,-50%);z-index:3}
-  .center-node .core{width:120px;height:120px;border-radius:50%;background:var(--card);border:1px solid var(--teal);display:grid;place-items:center;box-shadow:0 0 0 8px var(--teal-soft),0 24px 60px -18px rgba(0,0,0,.6);position:relative}
-  .center-node .core::after{content:"";position:absolute;inset:-1px;border-radius:50%;border:1px solid var(--teal);animation:ripple 3s ease-out infinite}
-  @keyframes ripple{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.7);opacity:0}}
-  .center-node .core svg{width:54px;height:54px}
+  .orbit{fill:none;stroke:var(--line);stroke-width:.6}
+  .orbit.dashed{stroke-dasharray:2 4;opacity:.55}
+  .spoke{stroke:var(--line);stroke-width:.7;stroke-dasharray:3 4;fill:none}
+  .net-core{position:absolute;left:50%;top:50%;width:130px;height:130px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(120% 120% at 35% 25%,var(--card),var(--card-2));border:1px solid var(--teal);display:grid;place-items:center;z-index:5;box-shadow:0 0 0 8px var(--teal-soft),0 24px 60px -18px rgba(0,0,0,.6)}
+  .net-core::before,.net-core::after{content:"";position:absolute;inset:-1px;border-radius:50%;border:1px solid var(--teal);opacity:0;animation:pulse 3.4s ease-out infinite}
+  .net-core::after{animation-delay:1.7s}
+  @keyframes pulse{0%{transform:scale(1);opacity:.5}100%{transform:scale(1.85);opacity:0}}
+  .net-core .glyph{width:56px;height:56px}
+  .net-core .cap{position:absolute;bottom:-28px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--fg-faint);white-space:nowrap}
+  .pnode{position:absolute;transform:translate(-50%,-50%);z-index:4;cursor:default}
+  .pnode .chip{display:flex;align-items:center;gap:9px;padding:11px 17px;border-radius:100px;background:var(--plat-bg);border:1px solid var(--line);box-shadow:0 14px 34px -14px rgba(0,0,0,.5);transition:.4s cubic-bezier(.2,.7,.3,1);white-space:nowrap}
+  .pnode .chip svg{flex:none;filter:grayscale(1);opacity:.5;transition:.45s}
+  .pnode .chip span{font-weight:700;font-size:.85rem;color:var(--plat-fg);opacity:.6;transition:.45s}
+  .pnode:hover .chip{transform:translateY(-3px) scale(1.05);border-color:var(--teal);box-shadow:0 20px 46px -14px rgba(0,0,0,.6),0 0 0 4px var(--teal-soft)}
+  .pnode:hover .chip svg{filter:grayscale(0);opacity:1}
+  .pnode:hover .chip span{opacity:1}
   .net-mobile{display:none}
 
   /* ============ APPLY ============ */
@@ -253,11 +259,18 @@
     .svc-grid{grid-template-columns:repeat(2,1fr)}
     .apply-inner{grid-template-columns:1fr;gap:42px}
     .foot-grid{grid-template-columns:1fr 1fr;gap:36px 24px}
-    .net-stage{display:none}.net-mobile{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:36px}
-    .net-mobile .node{position:static;transform:none}
-    .net-mobile .bubble{--sz:auto;width:100%;height:auto;border-radius:14px;padding:20px;flex-direction:row;justify-content:center;gap:10px}
+    .net-stage{max-width:440px}
+    .net-core{width:100px;height:100px}
+    .net-core .glyph{width:44px;height:44px}
+    .pnode .chip{padding:8px 12px;gap:6px}
+    .pnode .chip span{font-size:.72rem}
+    .pnode .chip svg{width:15px;height:15px}
   }
   @media(max-width:560px){
+    .net-stage{max-width:330px}
+    .pnode .chip{padding:6px 9px}
+    .pnode .chip span{font-size:.62rem}
+
     .wrap{padding:0 20px}
     .svc-grid{grid-template-columns:1fr}
     .field-row{grid-template-columns:1fr}
@@ -353,18 +366,18 @@
 <!-- ===== MARQUEE ===== -->
 <div class="marquee">
   <div class="mq-track">
-    Digital Music Distribution
-    Music Publishing
-    Rights Protection
-    Anti-Piracy
-    YouTube CMS
-    Catalog Management
-    Digital Music Distribution
-    Music Publishing
-    Rights Protection
-    Anti-Piracy
-    YouTube CMS
-    Catalog Management
+    <div class="mq-card"><span class="dot"></span><span>Digital Music Distribution</span></div>
+    <div class="mq-card"><span class="dot"></span><span>Music Publishing</span></div>
+    <div class="mq-card"><span class="dot"></span><span>Rights Protection</span></div>
+    <div class="mq-card"><span class="dot"></span><span>Anti-Piracy</span></div>
+    <div class="mq-card"><span class="dot"></span><span>YouTube CMS</span></div>
+    <div class="mq-card"><span class="dot"></span><span>Catalog Management</span></div>
+    <div class="mq-card"><span class="dot"></span><span>Digital Music Distribution</span></div>
+    <div class="mq-card"><span class="dot"></span><span>Music Publishing</span></div>
+    <div class="mq-card"><span class="dot"></span><span>Rights Protection</span></div>
+    <div class="mq-card"><span class="dot"></span><span>Anti-Piracy</span></div>
+    <div class="mq-card"><span class="dot"></span><span>YouTube CMS</span></div>
+    <div class="mq-card"><span class="dot"></span><span>Catalog Management</span></div>
   </div>
 </div>
 
@@ -436,66 +449,32 @@
       
     </div>
 
-    <!-- desktop creative web -->
-    <div class="net-stage" id="netStage">
-      <svg class="net-rings" viewBox="0 0 1100 620" preserveAspectRatio="none" fill="none">
-        <g stroke="var(--teal)" stroke-width="1" opacity="0.5">
-          <path d="M330 310 C620 90 1060 200 1000 360 C950 500 600 560 420 470 C280 400 250 360 330 310Z" opacity="0.55"/>
-          <path d="M330 310 C600 130 1010 230 960 360 C920 470 600 520 440 450 C320 395 270 360 330 310Z" opacity="0.42"/>
-          <path d="M330 310 C590 165 960 255 915 360 C880 445 600 485 455 430 C355 388 295 358 330 310Z" opacity="0.32"/>
-          <path d="M330 310 C580 195 905 280 870 360 C840 425 600 455 470 415 C380 382 315 356 330 310Z" opacity="0.24"/>
-          <path d="M330 310 C570 220 855 300 825 360 C800 405 600 428 482 400 C402 378 332 354 330 310Z" opacity="0.17"/>
-          <path d="M330 310 C560 245 805 318 782 360 C762 392 600 405 492 388 C420 374 348 352 330 310Z" opacity="0.11"/>
-        </g>
+    <div class="net-stage">
+      <svg class="net-svg" viewBox="0 0 100 100">
+        <circle class="orbit" cx="50" cy="50" r="14"/>
+        <circle class="orbit dashed" cx="50" cy="50" r="22"/>
+        <circle class="orbit" cx="50" cy="50" r="30"/>
+        <circle class="orbit dashed" cx="50" cy="50" r="37"/>
+        <line class="spoke" x1="50" y1="50" x2="50.0" y2="13.0"/>
+        <line class="spoke" x1="50" y1="50" x2="82.0" y2="31.5"/>
+        <line class="spoke" x1="50" y1="50" x2="82.0" y2="68.5"/>
+        <line class="spoke" x1="50" y1="50" x2="50.0" y2="87.0"/>
+        <line class="spoke" x1="50" y1="50" x2="18.0" y2="68.5"/>
+        <line class="spoke" x1="50" y1="50" x2="18.0" y2="31.5"/>
+        <circle r="1" fill="var(--teal)"><animate attributeName="cx" values="50;50.0" dur="4.0s" repeatCount="indefinite"/><animate attributeName="cy" values="50;13.0" dur="4.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" dur="4.0s" repeatCount="indefinite"/></circle>
+        <circle r="1" fill="var(--teal)"><animate attributeName="cx" values="50;82.0" dur="4.3s" repeatCount="indefinite"/><animate attributeName="cy" values="50;31.5" dur="4.3s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" dur="4.3s" repeatCount="indefinite"/></circle>
+        <circle r="1" fill="var(--teal)"><animate attributeName="cx" values="50;82.0" dur="4.6s" repeatCount="indefinite"/><animate attributeName="cy" values="50;68.5" dur="4.6s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" dur="4.6s" repeatCount="indefinite"/></circle>
+        <circle r="1" fill="var(--teal)"><animate attributeName="cx" values="50;50.0" dur="4.9s" repeatCount="indefinite"/><animate attributeName="cy" values="50;87.0" dur="4.9s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" dur="4.9s" repeatCount="indefinite"/></circle>
+        <circle r="1" fill="var(--teal)"><animate attributeName="cx" values="50;18.0" dur="5.2s" repeatCount="indefinite"/><animate attributeName="cy" values="50;68.5" dur="5.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" dur="5.2s" repeatCount="indefinite"/></circle>
+        <circle r="1" fill="var(--teal)"><animate attributeName="cx" values="50;18.0" dur="5.5s" repeatCount="indefinite"/><animate attributeName="cy" values="50;31.5" dur="5.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" dur="5.5s" repeatCount="indefinite"/></circle>
       </svg>
-
-      <svg class="net-svg" viewBox="0 0 1100 620" preserveAspectRatio="none">
-        <line class="net-line" x1="330" y1="310" x2="180" y2="150"/>
-        <line class="net-line" x1="330" y1="310" x2="430" y2="120"/>
-        <line class="net-line" x1="330" y1="310" x2="120" y2="300"/>
-        <line class="net-line" x1="330" y1="310" x2="540" y2="350"/>
-        <line class="net-line" x1="330" y1="310" x2="150" y2="470"/>
-        <line class="net-line" x1="330" y1="310" x2="390" y2="510"/>
-        <circle class="net-pulse" cx="250" cy="232" r="4"/>
-        <circle class="net-pulse" cx="382" cy="213" r="4"/>
-        <circle class="net-pulse" cx="222" cy="305" r="4"/>
-        <circle class="net-pulse" cx="437" cy="332" r="4"/>
-        <circle class="net-pulse" cx="238" cy="392" r="4"/>
-        <circle class="net-pulse" cx="361" cy="412" r="4"/>
-      </svg>
-
-      <div class="center-node">
-        <div class="core"><svg viewBox="0 0 100 100" fill="none"><path d="M60 35 C75 39 78 60 61 68 C46 75 31 61 40 48 C46 39 59 41 57 53" stroke="var(--teal)" stroke-width="7.5" stroke-linecap="round"/></svg></div>
-      </div>
-
-      <!-- nodes positioned by % matching the line endpoints -->
-      <div class="node" style="left:16.4%;top:24.2%"><div class="bubble" style="--sz:118px"><span class="lbl">
-        <svg viewBox="0 0 24 24" width="22"><path fill="#FF0000" d="M23 7.5a3 3 0 00-2.1-2.1C19 4.9 12 4.9 12 4.9s-7 0-8.9.5A3 3 0 001 7.5 31 31 0 00.5 12 31 31 0 001 16.5a3 3 0 002.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 002.1-2.1A31 31 0 0023.5 12 31 31 0 0023 7.5z"/><path fill="#fff" d="M9.8 15.3V8.7l5.7 3.3z"/></svg>YouTube</span></div></div>
-
-      <div class="node" style="left:34.7%;top:19.4%"><div class="bubble" style="--sz:96px"><span class="lbl">
-        <svg viewBox="0 0 24 24" width="20"><circle cx="12" cy="12" r="12" fill="#1DB954"/><path fill="#fff" d="M17.6 17.1c-.2.4-.7.5-1 .3-2.8-1.7-6.4-2.1-10.6-1.1-.4.1-.8-.2-.9-.6-.1-.4.2-.8.6-.9 4.6-1 8.6-.6 11.7 1.3.4.2.5.7.2 1zm1.5-3.3c-.3.4-.8.6-1.2.3-3.2-2-8.1-2.5-11.9-1.4-.5.1-1-.1-1.1-.6-.1-.5.1-1 .6-1.1 4.4-1.3 9.8-.7 13.5 1.6.4.2.5.8.1 1.2zm.1-3.4C16 5.2 10 5 6.4 6.1c-.6.2-1.2-.1-1.4-.7-.2-.6.2-1.2.7-1.4 4.2-1.2 10.8-1 15 1.5.5.3.7 1 .4 1.5-.3.5-1 .7-1.5.4z"/></svg>Spotify</span></div></div>
-
-      <div class="node" style="left:10.9%;top:48.4%"><div class="bubble" style="--sz:96px"><span class="lbl">
-        <svg viewBox="0 0 24 24" width="19"><path fill="#25F4EE" d="M15.5 3c.3 2 1.5 3.6 3.4 4v2.4c-1.1 0-2.1-.3-3-.8v6.1a5.4 5.4 0 11-5.4-5.4c.3 0 .5 0 .8.1v2.5a2.9 2.9 0 102 2.8V3z"/><path fill="#FE2C55" d="M16.5 3c.3 2 1.5 3.6 3.4 4v2.4c-1.1 0-2.1-.3-3-.8v6.1a5.4 5.4 0 11-5.4-5.4c.3 0 .5 0 .8.1v2.5a2.9 2.9 0 102 2.8V3z"/><path fill="var(--plat-fg)" d="M16 3c.3 2 1.5 3.6 3.4 4v2.4c-1.1 0-2.1-.3-3-.8v6.1a5.4 5.4 0 11-5.4-5.4c.3 0 .5 0 .8.1v2.5a2.9 2.9 0 102 2.8V3z"/></svg><span style="font-weight:800">TikTok</span></span></div></div>
-
-      <div class="node" style="left:49.1%;top:56.5%"><div class="bubble" style="--sz:108px"><span class="lbl">
-        <svg viewBox="0 0 24 24" width="19"><path fill="#FA243C" d="M18.7 17.2c-.3.8-.5 1.1-1 1.8-.6 1-1.5 2.2-2.7 2.2-1 0-1.3-.7-2.7-.7s-1.7.6-2.7.7c-1.1 0-1.9-1.1-2.6-2.1-1.8-2.6-2-5.6-.9-7.2.8-1.2 2-1.9 3.2-1.9 1.2 0 2 .7 3 .7.9 0 1.5-.7 2.9-.7 1.1 0 2.2.6 3 1.6-2.6 1.4-2.2 5.1.2 5.6zM14.6 7.3c.5-.7.9-1.6.8-2.6-.8.1-1.8.6-2.4 1.3-.5.6-1 1.6-.9 2.5.9.1 1.9-.4 2.5-1.2z"/></svg>Music</span></div></div>
-
-      <div class="node" style="left:13.6%;top:75.8%"><div class="bubble" style="--sz:106px"><span class="lbl">
-        <svg viewBox="0 0 24 16" width="24"><g fill="#A238FF"><rect x="0" y="11" width="3.8" height="3"/><rect x="5" y="11" width="3.8" height="3"/><rect x="5" y="7" width="3.8" height="3"/><rect x="10" y="11" width="3.8" height="3"/><rect x="10" y="7" width="3.8" height="3"/><rect x="10" y="3" width="3.8" height="3"/><rect x="15" y="11" width="3.8" height="3"/><rect x="15" y="7" width="3.8" height="3"/><rect x="20" y="11" width="3.8" height="3"/></g></svg><span style="font-weight:800;letter-spacing:.02em">Deezer</span></span></div></div>
-
-      <div class="node" style="left:35.5%;top:82.3%"><div class="bubble" style="--sz:94px"><span class="lbl">
-        <svg viewBox="0 0 24 24" width="20"><path d="M6 19L12 5l6 14" fill="none" stroke="#7B2FF7" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/><path d="M8.4 14h7.2" stroke="#7B2FF7" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="11.5" r="2.1" fill="#19C39C"/></svg>Anghami</span></div></div>
-    </div>
-
-    <!-- mobile fallback -->
-    <div class="net-mobile">
-      <div class="node"><div class="bubble"><span class="lbl"><svg viewBox="0 0 24 24" width="22"><path fill="#FF0000" d="M23 7.5a3 3 0 00-2.1-2.1C19 4.9 12 4.9 12 4.9s-7 0-8.9.5A3 3 0 001 7.5 31 31 0 00.5 12 31 31 0 001 16.5a3 3 0 002.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 002.1-2.1A31 31 0 0023.5 12 31 31 0 0023 7.5z"/><path fill="#fff" d="M9.8 15.3V8.7l5.7 3.3z"/></svg>YouTube</span></div></div>
-      <div class="node"><div class="bubble"><span class="lbl"><svg viewBox="0 0 24 24" width="20"><circle cx="12" cy="12" r="12" fill="#1DB954"/><path fill="#fff" d="M17.6 17.1c-.2.4-.7.5-1 .3-2.8-1.7-6.4-2.1-10.6-1.1-.4.1-.8-.2-.9-.6-.1-.4.2-.8.6-.9 4.6-1 8.6-.6 11.7 1.3.4.2.5.7.2 1zm1.5-3.3c-.3.4-.8.6-1.2.3-3.2-2-8.1-2.5-11.9-1.4-.5.1-1-.1-1.1-.6-.1-.5.1-1 .6-1.1 4.4-1.3 9.8-.7 13.5 1.6.4.2.5.8.1 1.2zm.1-3.4C16 5.2 10 5 6.4 6.1c-.6.2-1.2-.1-1.4-.7-.2-.6.2-1.2.7-1.4 4.2-1.2 10.8-1 15 1.5.5.3.7 1 .4 1.5-.3.5-1 .7-1.5.4z"/></svg>Spotify</span></div></div>
-      <div class="node"><div class="bubble"><span class="lbl"><svg viewBox="0 0 24 24" width="19"><path fill="#25F4EE" d="M15.5 3c.3 2 1.5 3.6 3.4 4v2.4c-1.1 0-2.1-.3-3-.8v6.1a5.4 5.4 0 11-5.4-5.4c.3 0 .5 0 .8.1v2.5a2.9 2.9 0 102 2.8V3z"/><path fill="#FE2C55" d="M16.5 3c.3 2 1.5 3.6 3.4 4v2.4c-1.1 0-2.1-.3-3-.8v6.1a5.4 5.4 0 11-5.4-5.4c.3 0 .5 0 .8.1v2.5a2.9 2.9 0 102 2.8V3z"/><path fill="var(--plat-fg)" d="M16 3c.3 2 1.5 3.6 3.4 4v2.4c-1.1 0-2.1-.3-3-.8v6.1a5.4 5.4 0 11-5.4-5.4c.3 0 .5 0 .8.1v2.5a2.9 2.9 0 102 2.8V3z"/></svg><span style="font-weight:800">TikTok</span></span></div></div>
-      <div class="node"><div class="bubble"><span class="lbl"><svg viewBox="0 0 24 24" width="19"><path fill="#FA243C" d="M18.7 17.2c-.3.8-.5 1.1-1 1.8-.6 1-1.5 2.2-2.7 2.2-1 0-1.3-.7-2.7-.7s-1.7.6-2.7.7c-1.1 0-1.9-1.1-2.6-2.1-1.8-2.6-2-5.6-.9-7.2.8-1.2 2-1.9 3.2-1.9 1.2 0 2 .7 3 .7.9 0 1.5-.7 2.9-.7 1.1 0 2.2.6 3 1.6-2.6 1.4-2.2 5.1.2 5.6zM14.6 7.3c.5-.7.9-1.6.8-2.6-.8.1-1.8.6-2.4 1.3-.5.6-1 1.6-.9 2.5.9.1 1.9-.4 2.5-1.2z"/></svg>Music</span></div></div>
-      <div class="node"><div class="bubble"><span class="lbl"><svg viewBox="0 0 24 16" width="24"><g fill="#A238FF"><rect x="0" y="11" width="3.8" height="3"/><rect x="5" y="11" width="3.8" height="3"/><rect x="5" y="7" width="3.8" height="3"/><rect x="10" y="11" width="3.8" height="3"/><rect x="10" y="7" width="3.8" height="3"/><rect x="10" y="3" width="3.8" height="3"/><rect x="15" y="11" width="3.8" height="3"/><rect x="15" y="7" width="3.8" height="3"/><rect x="20" y="11" width="3.8" height="3"/></g></svg><span style="font-weight:800">Deezer</span></span></div></div>
-      <div class="node"><div class="bubble"><span class="lbl"><svg viewBox="0 0 24 24" width="20"><path d="M6 19L12 5l6 14" fill="none" stroke="#7B2FF7" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/><path d="M8.4 14h7.2" stroke="#7B2FF7" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="11.5" r="2.1" fill="#19C39C"/></svg>Anghami</span></div></div>
+      <div class="net-core"><svg class="glyph" viewBox="0 0 100 100" fill="none"><path d="M60 35 C75 39 78 60 61 68 C46 75 31 61 40 48 C46 39 59 41 57 53" stroke="var(--teal)" stroke-width="7.5" stroke-linecap="round"/></svg><span class="cap">Sout Network</span></div>
+      <div class="pnode" style="left:50.0%;top:13.0%"><div class="chip"><svg viewBox="0 0 24 24" width="22"><path fill="#FF0000" d="M23 7.5a3 3 0 00-2.1-2.1C19 4.9 12 4.9 12 4.9s-7 0-8.9.5A3 3 0 001 7.5 31 31 0 00.5 12 31 31 0 001 16.5a3 3 0 002.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 002.1-2.1A31 31 0 0023.5 12 31 31 0 0023 7.5z"/><path fill="#fff" d="M9.8 15.3V8.7l5.7 3.3z"/></svg><span>YouTube</span></div></div>
+      <div class="pnode" style="left:82.0%;top:31.5%"><div class="chip"><svg viewBox="0 0 24 24" width="20"><circle cx="12" cy="12" r="12" fill="#1DB954"/><path fill="#fff" d="M17.6 17.1c-.2.4-.7.5-1 .3-2.8-1.7-6.4-2.1-10.6-1.1-.4.1-.8-.2-.9-.6-.1-.4.2-.8.6-.9 4.6-1 8.6-.6 11.7 1.3.4.2.5.7.2 1zm1.5-3.3c-.3.4-.8.6-1.2.3-3.2-2-8.1-2.5-11.9-1.4-.5.1-1-.1-1.1-.6-.1-.5.1-1 .6-1.1 4.4-1.3 9.8-.7 13.5 1.6.4.2.5.8.1 1.2zm.1-3.4C16 5.2 10 5 6.4 6.1c-.6.2-1.2-.1-1.4-.7-.2-.6.2-1.2.7-1.4 4.2-1.2 10.8-1 15 1.5.5.3.7 1 .4 1.5-.3.5-1 .7-1.5.4z"/></svg><span>Spotify</span></div></div>
+      <div class="pnode" style="left:82.0%;top:68.5%"><div class="chip"><svg viewBox="0 0 24 24" width="19"><path fill="#25F4EE" d="M15.5 3c.3 2 1.5 3.6 3.4 4v2.4c-1.1 0-2.1-.3-3-.8v6.1a5.4 5.4 0 11-5.4-5.4c.3 0 .5 0 .8.1v2.5a2.9 2.9 0 102 2.8V3z"/><path fill="#FE2C55" d="M16.5 3c.3 2 1.5 3.6 3.4 4v2.4c-1.1 0-2.1-.3-3-.8v6.1a5.4 5.4 0 11-5.4-5.4c.3 0 .5 0 .8.1v2.5a2.9 2.9 0 102 2.8V3z"/><path fill="var(--plat-fg)" d="M16 3c.3 2 1.5 3.6 3.4 4v2.4c-1.1 0-2.1-.3-3-.8v6.1a5.4 5.4 0 11-5.4-5.4c.3 0 .5 0 .8.1v2.5a2.9 2.9 0 102 2.8V3z"/></svg><span>TikTok</span></div></div>
+      <div class="pnode" style="left:50.0%;top:87.0%"><div class="chip"><svg viewBox="0 0 24 24" width="19"><path fill="#FA243C" d="M18.7 17.2c-.3.8-.5 1.1-1 1.8-.6 1-1.5 2.2-2.7 2.2-1 0-1.3-.7-2.7-.7s-1.7.6-2.7.7c-1.1 0-1.9-1.1-2.6-2.1-1.8-2.6-2-5.6-.9-7.2.8-1.2 2-1.9 3.2-1.9 1.2 0 2 .7 3 .7.9 0 1.5-.7 2.9-.7 1.1 0 2.2.6 3 1.6-2.6 1.4-2.2 5.1.2 5.6zM14.6 7.3c.5-.7.9-1.6.8-2.6-.8.1-1.8.6-2.4 1.3-.5.6-1 1.6-.9 2.5.9.1 1.9-.4 2.5-1.2z"/></svg><span>Music</span></div></div>
+      <div class="pnode" style="left:18.0%;top:68.5%"><div class="chip"><svg viewBox="0 0 24 16" width="24"><g fill="#A238FF"><rect x="0" y="11" width="3.8" height="3"/><rect x="5" y="11" width="3.8" height="3"/><rect x="5" y="7" width="3.8" height="3"/><rect x="10" y="11" width="3.8" height="3"/><rect x="10" y="7" width="3.8" height="3"/><rect x="10" y="3" width="3.8" height="3"/><rect x="15" y="11" width="3.8" height="3"/><rect x="15" y="7" width="3.8" height="3"/><rect x="20" y="11" width="3.8" height="3"/></g></svg><span>Deezer</span></div></div>
+      <div class="pnode" style="left:18.0%;top:31.5%"><div class="chip"><svg viewBox="0 0 24 24" width="20"><rect x="2" y="2" width="20" height="20" rx="6" fill="#6C2BD9"/><path fill="#fff" d="M12 17.5c-2.6-1.8-4.5-3.4-4.5-5.4 0-1.3 1-2.3 2.3-2.3.9 0 1.6.5 2.2 1.2.6-.7 1.3-1.2 2.2-1.2 1.3 0 2.3 1 2.3 2.3 0 2-1.9 3.6-4.5 5.4z"/></svg><span>Anghami</span></div></div>
     </div>
   </div>
 </section>
