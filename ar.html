@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="ar" dir="rtl" data-theme="dark">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -53,6 +53,9 @@
   .mono{font-family:var(--mono);text-transform:uppercase;letter-spacing:.2em;font-size:.7rem;color:var(--teal)}
 
   /* Arabic adjustments */
+  body{font-family:"IBM Plex Sans Arabic",sans-serif}
+  html[dir="rtl"] .display,html[dir="rtl"] h1,html[dir="rtl"] h2,html[dir="rtl"] h3{font-family:"IBM Plex Sans Arabic",sans-serif;letter-spacing:0}
+  html[dir="rtl"] .mono{letter-spacing:.1em}
 
   /* metal text */
   .metal-text{background:var(--headline);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sheen 8s linear infinite}
@@ -103,6 +106,7 @@
 
   /* mobile menu */
   .mobile-menu{position:fixed;inset:74px 0 0;background:var(--bg);z-index:999;padding:24px 28px;overflow-y:auto;transform:translateX(100%);transition:.4s cubic-bezier(.2,.7,.3,1);display:flex;flex-direction:column;gap:6px}
+  html[dir="rtl"] .mobile-menu{transform:translateX(-100%)}
   .mobile-menu.open{transform:none}
   .mobile-menu .m-group{border-bottom:1px solid var(--line);padding:6px 0}
   .mobile-menu .m-head{font-family:var(--display);font-weight:700;font-size:1.1rem;padding:12px 4px;display:flex;justify-content:space-between;cursor:pointer}
@@ -124,6 +128,7 @@
   .pill .d{width:6px;height:6px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px var(--teal-soft)}
   .pill span{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--fg-soft)}
   h1.display{font-family:var(--display);font-weight:800;line-height:.98;letter-spacing:-.03em;font-size:clamp(2.6rem,6.6vw,5.8rem);max-width:16ch}
+  html[dir="rtl"] h1.display{line-height:1.12;font-size:clamp(2.3rem,6vw,5rem)}
   .hero p.lede{margin-top:26px;max-width:52ch;font-size:1.1rem;line-height:1.66;color:var(--fg-soft)}
   .hero-cta{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap}
   .hero-cta .btn{padding:14px 26px;font-size:.94rem}
@@ -137,12 +142,14 @@
   .mq-track span{font-family:var(--display);font-weight:600;font-size:.98rem;letter-spacing:.02em;color:var(--fg-soft);text-transform:uppercase;display:flex;align-items:center;gap:54px}
   .mq-track span::after{content:"";width:5px;height:5px;border-radius:50%;background:var(--teal)}
   @keyframes scroll{to{transform:translateX(-50%)}}
+  html[dir="rtl"] .mq-track{animation-direction:reverse}
 
   /* ============ SECTION ============ */
   section{position:relative}
   .pad{padding:120px 0}
   .sec-head{margin-bottom:54px;max-width:760px}
   .sec-head h2{font-family:var(--display);font-weight:800;letter-spacing:-.025em;line-height:1.02;font-size:clamp(2rem,4.4vw,3.4rem);margin-top:14px}
+  html[dir="rtl"] .sec-head h2{line-height:1.2}
   .sec-head p{margin-top:16px;color:var(--fg-soft);font-size:1.04rem;line-height:1.6;max-width:58ch}
 
   /* ============ SERVICES (glow cards) ============ */
@@ -183,6 +190,7 @@
   /* ============ APPLY ============ */
   .apply-inner{display:grid;grid-template-columns:.92fr 1.08fr;gap:60px}
   .apply-left h2{font-family:var(--display);font-weight:800;font-size:clamp(2rem,4.6vw,3.4rem);line-height:1.0;letter-spacing:-.025em}
+  html[dir="rtl"] .apply-left h2{line-height:1.2}
   .apply-left p{margin-top:18px;color:var(--fg-soft);font-size:1.02rem;line-height:1.7;max-width:42ch}
   .steps{margin-top:30px;display:flex;flex-direction:column;gap:18px}
   .step{display:flex;gap:16px;align-items:flex-start}
@@ -240,6 +248,7 @@
   .foot-col h4{font-family:var(--display);font-weight:600;font-size:1.05rem;margin-bottom:18px}
   .foot-col a{display:block;color:var(--fg-soft);font-size:.9rem;margin-bottom:13px;transition:.2s}
   .foot-col a:hover{color:var(--teal)}
+  html[dir="rtl"] .foot-col a:hover{padding-inline-start:4px}
   .foot-bottom{margin-top:64px;border-top:1px solid var(--line);padding:24px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
   .foot-bottom span{color:var(--fg-faint);font-size:.86rem}
   .foot-bottom .tag{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--teal)}
@@ -281,36 +290,36 @@
       <div class="nav-menu" id="navMenu">
         <!-- Services dropdown -->
         <div class="nav-item">
-          <button data-dd="services">Services
+          <button data-dd="services">الخدمات
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></button>
           <div class="dd">
-            <a href="#services"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3c2.5 2 4 5.5 4 9s-1.5 7-4 9M12 3c-2.5 2-4 5.5-4 9s1.5 7 4 9M3 9h18M3 15h18"/></svg></span><span class="tx"><b>Digital Music Distribution</b><small>Deliver to 30+ platforms worldwide.</small></span></a>
-            <a href="#services"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></span><span class="tx"><b>Music Publishing</b><small>Register rights and collect royalties.</small></span></a>
-            <a href="#services"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></span><span class="tx"><b>Rights Protection</b><small>Anti-piracy and anti-fraud monitoring.</small></span></a>
+            <a href="#services"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3c2.5 2 4 5.5 4 9s-1.5 7-4 9M12 3c-2.5 2-4 5.5-4 9s1.5 7 4 9M3 9h18M3 15h18"/></svg></span><span class="tx"><b>توزيع موسيقى رقمي</b><small>توصيل لأكثر من 30 منصة عالميًا.</small></span></a>
+            <a href="#services"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></span><span class="tx"><b>النشر الموسيقي</b><small>تسجيل الحقوق وتحصيل العوائد.</small></span></a>
+            <a href="#services"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></span><span class="tx"><b>حماية الحقوق</b><small>مكافحة القرصنة والاحتيال.</small></span></a>
           </div>
         </div>
         <!-- Company dropdown -->
         <div class="nav-item">
-          <button data-dd="company">Company
+          <button data-dd="company">الشركة
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></button>
           <div class="dd">
-            <a href="#network"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="4" cy="6" r="2"/><circle cx="20" cy="6" r="2"/><circle cx="4" cy="18" r="2"/><circle cx="20" cy="18" r="2"/><path d="M9.6 10.6L5.3 7.3M14.4 10.6l4.3-3.3M9.6 13.4l-4.3 3.3M14.4 13.4l4.3 3.3"/></svg></span><span class="tx"><b>Our Network</b><small>The platforms we deliver to.</small></span></a>
-            <a href="#catalog"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h10"/></svg></span><span class="tx"><b>Catalog at Scale</b><small>How we run large catalogs cleanly.</small></span></a>
-            <a href="#apply"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span><span class="tx"><b>Apply to Join</b><small>Selective. We review every artist.</small></span></a>
+            <a href="#network"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="4" cy="6" r="2"/><circle cx="20" cy="6" r="2"/><circle cx="4" cy="18" r="2"/><circle cx="20" cy="18" r="2"/><path d="M9.6 10.6L5.3 7.3M14.4 10.6l4.3-3.3M9.6 13.4l-4.3 3.3M14.4 13.4l4.3 3.3"/></svg></span><span class="tx"><b>شبكتنا</b><small>المنصات اللي بنوزّع عليها.</small></span></a>
+            <a href="#catalog"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h10"/></svg></span><span class="tx"><b>إدارة الكتالوج</b><small>إدارة كتالوجات ضخمة بدقة.</small></span></a>
+            <a href="#apply"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span><span class="tx"><b>قدّم معانا</b><small>انتقائي. بنراجع كل فنان.</small></span></a>
           </div>
         </div>
-        <a class="nav-link" href="#network">Network</a>
-        <a class="nav-link" href="#contact">Contact</a>
+        <a class="nav-link" href="#network">الشبكة</a>
+        <a class="nav-link" href="#contact">تواصل</a>
       </div>
 
       <div class="nav-right">
-        <button class="icon-btn" id="langBtn" title="Language">AR</button>
+        <button class="icon-btn" id="langBtn" title="Language">EN</button>
         <button class="icon-btn" id="themeBtn" title="Theme">
           <svg data-theme-icon="dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1111.2 3 7 7 0 0021 12.8z"/></svg>
           <svg data-theme-icon="light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><circle cx="12" cy="12" r="5"/><path d="M12 1v3M12 20v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M1 12h3M20 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>
         </button>
-        <button class="btn btn-ghost" id="loginBtn">Client Login</button>
-        <a href="#apply" class="btn btn-solid">Apply Now →</a>
+        <button class="btn btn-ghost" id="loginBtn">دخول العملاء</button>
+        <a href="#apply" class="btn btn-solid">قدّم الآن →</a>
         <button class="burger" id="burger"><span></span><span></span><span></span></button>
       </div>
     </nav>
@@ -319,13 +328,13 @@
 
 <!-- mobile menu -->
 <div class="mobile-menu" id="mobileMenu">
-  <div class="m-group"><div class="m-head">Services<span>+</span></div>
-    <div class="m-sub"><a href="#services">Digital Music Distribution</a><a href="#services">Music Publishing</a><a href="#services">Rights Protection</a></div></div>
-  <div class="m-group"><div class="m-head">Company<span>+</span></div>
-    <div class="m-sub"><a href="#network">Our Network</a><a href="#catalog">Catalog at Scale</a><a href="#apply">Apply to Join</a></div></div>
-  <a class="m-head" href="#network">Network</a>
-  <a class="m-head" href="#contact">Contact</a>
-  <a href="#apply" class="btn btn-solid" style="justify-content:center;margin-top:16px">Apply Now →</a>
+  <div class="m-group"><div class="m-head">الخدمات<span>+</span></div>
+    <div class="m-sub"><a href="#services">توزيع موسيقى رقمي</a><a href="#services">النشر الموسيقي</a><a href="#services">حماية الحقوق</a></div></div>
+  <div class="m-group"><div class="m-head">الشركة<span>+</span></div>
+    <div class="m-sub"><a href="#network">شبكتنا</a><a href="#catalog">إدارة الكتالوج</a><a href="#apply">قدّم معانا</a></div></div>
+  <a class="m-head" href="#network">الشبكة</a>
+  <a class="m-head" href="#contact">تواصل</a>
+  <a href="#apply" class="btn btn-solid" style="justify-content:center;margin-top:16px">قدّم الآن →</a>
 </div>
 <!-- ===== HERO ===== -->
 <section class="hero" id="top">
@@ -333,19 +342,19 @@
   <div class="hero-orb a"></div>
   <div class="hero-orb b"></div>
   <div class="wrap">
-    <div class="pill reveal"><span class="d"></span>Music-first · Worldwide</div>
-    <h1 class="display reveal">Distribute. Promote.<br>Protect your music.</h1>
+    <div class="pill reveal"><span class="d"></span>الموسيقى أولًا · حول العالم</div>
     
-    <p class="lede reveal">Sout Network helps independent artists and record labels distribute, promote, and protect their music globally, backed by fast, human support that actually answers.</p>
+    <h1 class="display reveal">وزّع. روّج.<br>واحمِ موسيقاك.</h1>
     
+    <p class="lede reveal">تساعد Sout Network الفنانين المستقلين وشركات الإنتاج على توزيع وترويج وحماية موسيقاهم حول العالم، بدعم بشري سريع يرد فعلًا.</p>
     <div class="hero-cta reveal">
-      <a href="#apply" class="btn btn-solid">Apply for Partnership →</a>
-      <a href="#services" class="btn btn-ghost">Explore Services</a>
+      <a href="#apply" class="btn btn-solid">قدّم للشراكة →</a>
+      <a href="#services" class="btn btn-ghost">اكتشف الخدمات</a>
     </div>
     <div class="stats">
-      <div class="stat reveal"><div class="n metal-text">50,000+</div><div class="l">Tracks distributed</div></div>
-      <div class="stat reveal"><div class="n metal-text">30+</div><div class="l">Platforms delivered</div></div>
-      <div class="stat reveal"><div class="n metal-text">Worldwide</div><div class="l">Borderless reach</div></div>
+      <div class="stat reveal"><div class="n metal-text">50,000+</div><div class="l">تراك تم توزيعه</div></div>
+      <div class="stat reveal"><div class="n metal-text">30+</div><div class="l">منصة توصيل</div></div>
+      <div class="stat reveal"><div class="n metal-text">عالميًا</div><div class="l">وصول بلا حدود</div></div>
     </div>
   </div>
 </section>
@@ -353,18 +362,18 @@
 <!-- ===== MARQUEE ===== -->
 <div class="marquee">
   <div class="mq-track">
-    Digital Music Distribution
-    Music Publishing
-    Rights Protection
-    Anti-Piracy
-    YouTube CMS
-    Catalog Management
-    Digital Music Distribution
-    Music Publishing
-    Rights Protection
-    Anti-Piracy
-    YouTube CMS
-    Catalog Management
+    توزيع موسيقى رقمي
+    نشر موسيقي
+    حماية الحقوق
+    مكافحة القرصنة
+    يوتيوب CMS
+    إدارة الكتالوج
+    توزيع موسيقى رقمي
+    نشر موسيقي
+    حماية الحقوق
+    مكافحة القرصنة
+    يوتيوب CMS
+    إدارة الكتالوج
   </div>
 </div>
 
@@ -372,54 +381,54 @@
 <section class="pad" id="services">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="mono">(What We Do)</span>
-      <h2>Everything your release needs, in one team</h2>
+      <span class="mono">(ماذا نقدّم)</span>
       
-      <p>A music-first network with selective work across the wider entertainment space. From delivery to protection, we handle the operations so artists and labels can focus on the music.</p>
+      <h2>كل ما يحتاجه إصدارك، في فريق واحد</h2>
       
+      <p>شبكة موسيقية في المقام الأول، مع عمل انتقائي في مجال الترفيه الأوسع. من التوصيل إلى الحماية، نتولّى العمليات حتى يركّز الفنانون والشركات على الموسيقى.</p>
     </div>
     <div class="svc-grid" id="svcGrid">
 
       <div class="svc reveal"><span class="num">01</span>
         <div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="12" r="9"/><path d="M12 3c2.5 2 4 5.5 4 9s-1.5 7-4 9M12 3c-2.5 2-4 5.5-4 9s1.5 7 4 9M3 9h18M3 15h18"/></svg></div>
-        <h3>Digital Music Distribution</h3>
-        <p>Deliver releases to 30+ platforms with clear timelines and consistent metadata handling.</p>
+        <h3>توزيع موسيقى رقمي</h3>
         
+        <p>توصيل الإصدارات لأكثر من 30 منصة بمواعيد واضحة ومعالجة دقيقة للبيانات الوصفية.</p>
       </div>
 
       <div class="svc reveal"><span class="num">02</span>
         <div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M8 19V8l13-3v12"/><circle cx="5.5" cy="19" r="2.5"/><circle cx="18.5" cy="17" r="2.5"/></svg></div>
-        <h3>Promotion Support</h3>
-        <p>Grow audience through editorial pitching, campaign planning, and release strategy guidance.</p>
+        <h3>دعم الترويج</h3>
         
+        <p>زيادة الجمهور عبر الترشيح التحريري وتخطيط الحملات وإرشاد استراتيجية الإصدار.</p>
       </div>
 
       <div class="svc reveal"><span class="num">03</span>
         <div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></div>
-        <h3>Rights Protection</h3>
-        <p>Protect your catalogue with platform rights tooling and proactive anti-fraud and anti-piracy monitoring.</p>
+        <h3>حماية الحقوق</h3>
         
+        <p>حماية الكتالوج بأدوات حقوق المنصات ومراقبة استباقية ضد الاحتيال والقرصنة.</p>
       </div>
 
       <div class="svc reveal"><span class="num">04</span>
         <div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l4 2.5"/></svg></div>
-        <h3>Fast Release Review</h3>
-        <p>Move quickly with predictable release QA and fast turnaround from real people.</p>
+        <h3>مراجعة إصدار سريعة</h3>
         
+        <p>تحرّك بسرعة مع مراجعة جودة منتظمة واستجابة سريعة من أشخاص حقيقيين.</p>
       </div>
 
       <div class="svc reveal"><span class="num">05</span>
         <div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
-        <h3>Music Publishing</h3>
-        <p>Claim more publishing revenue with structured rights registration and collection support.</p>
+        <h3>النشر الموسيقي</h3>
         
+        <p>احصل على عوائد نشر أكبر عبر تسجيل منظّم للحقوق ودعم التحصيل.</p>
       </div>
 
       <div class="svc reveal"><span class="num">06</span>
         <div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="9" r="4"/><path d="M5 20c1-4 4-6 7-6s6 2 7 6"/></svg></div>
-        <h3>Human-First Support</h3>
-        <p>Get fast responses from a team that understands artists, labels, and release operations.</p>
+        <h3>دعم بشري أولًا</h3>
         
+        <p>ردود سريعة من فريق يفهم الفنانين والشركات وعمليات الإصدار.</p>
       </div>
 
     </div>
@@ -429,11 +438,11 @@
 <section class="network" id="network">
   <div class="wrap">
     <div class="sec-head reveal" style="text-align:center;margin:0 auto">
-      <span class="mono">(Our Network)</span>
-      <h2>Delivered everywhere people listen</h2>
+      <span class="mono">(شبكتنا)</span>
       
-      <p style="margin-inline:auto">A trusted distribution partner across the platforms that matter, including an official YouTube CMS partnership.</p>
+      <h2>نوصل لكل مكان يستمع فيه الناس</h2>
       
+      <p style="margin-inline:auto">شريك توزيع موثوق عبر المنصات الأهم، بما فيها شراكة رسمية مع YouTube CMS.</p>
     </div>
 
     <!-- desktop creative web -->
@@ -485,7 +494,7 @@
         <svg viewBox="0 0 24 16" width="24"><g fill="#A238FF"><rect x="0" y="11" width="3.8" height="3"/><rect x="5" y="11" width="3.8" height="3"/><rect x="5" y="7" width="3.8" height="3"/><rect x="10" y="11" width="3.8" height="3"/><rect x="10" y="7" width="3.8" height="3"/><rect x="10" y="3" width="3.8" height="3"/><rect x="15" y="11" width="3.8" height="3"/><rect x="15" y="7" width="3.8" height="3"/><rect x="20" y="11" width="3.8" height="3"/></g></svg><span style="font-weight:800;letter-spacing:.02em">Deezer</span></span></div></div>
 
       <div class="node" style="left:35.5%;top:82.3%"><div class="bubble" style="--sz:94px"><span class="lbl">
-        <svg viewBox="0 0 24 24" width="20"><path d="M6 19L12 5l6 14" fill="none" stroke="#7B2FF7" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/><path d="M8.4 14h7.2" stroke="#7B2FF7" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="11.5" r="2.1" fill="#19C39C"/></svg>Anghami</span></div></div>
+        <svg viewBox="0 0 24 24" width="20"><path d="M6 19L12 5l6 14" fill="none" stroke="#7B2FF7" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/><path d="M8.4 14h7.2" stroke="#7B2FF7" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="11.5" r="2.1" fill="#19C39C"/></svg>أنغامي</span></div></div>
     </div>
 
     <!-- mobile fallback -->
@@ -495,7 +504,7 @@
       <div class="node"><div class="bubble"><span class="lbl"><svg viewBox="0 0 24 24" width="19"><path fill="#25F4EE" d="M15.5 3c.3 2 1.5 3.6 3.4 4v2.4c-1.1 0-2.1-.3-3-.8v6.1a5.4 5.4 0 11-5.4-5.4c.3 0 .5 0 .8.1v2.5a2.9 2.9 0 102 2.8V3z"/><path fill="#FE2C55" d="M16.5 3c.3 2 1.5 3.6 3.4 4v2.4c-1.1 0-2.1-.3-3-.8v6.1a5.4 5.4 0 11-5.4-5.4c.3 0 .5 0 .8.1v2.5a2.9 2.9 0 102 2.8V3z"/><path fill="var(--plat-fg)" d="M16 3c.3 2 1.5 3.6 3.4 4v2.4c-1.1 0-2.1-.3-3-.8v6.1a5.4 5.4 0 11-5.4-5.4c.3 0 .5 0 .8.1v2.5a2.9 2.9 0 102 2.8V3z"/></svg><span style="font-weight:800">TikTok</span></span></div></div>
       <div class="node"><div class="bubble"><span class="lbl"><svg viewBox="0 0 24 24" width="19"><path fill="#FA243C" d="M18.7 17.2c-.3.8-.5 1.1-1 1.8-.6 1-1.5 2.2-2.7 2.2-1 0-1.3-.7-2.7-.7s-1.7.6-2.7.7c-1.1 0-1.9-1.1-2.6-2.1-1.8-2.6-2-5.6-.9-7.2.8-1.2 2-1.9 3.2-1.9 1.2 0 2 .7 3 .7.9 0 1.5-.7 2.9-.7 1.1 0 2.2.6 3 1.6-2.6 1.4-2.2 5.1.2 5.6zM14.6 7.3c.5-.7.9-1.6.8-2.6-.8.1-1.8.6-2.4 1.3-.5.6-1 1.6-.9 2.5.9.1 1.9-.4 2.5-1.2z"/></svg>Music</span></div></div>
       <div class="node"><div class="bubble"><span class="lbl"><svg viewBox="0 0 24 16" width="24"><g fill="#A238FF"><rect x="0" y="11" width="3.8" height="3"/><rect x="5" y="11" width="3.8" height="3"/><rect x="5" y="7" width="3.8" height="3"/><rect x="10" y="11" width="3.8" height="3"/><rect x="10" y="7" width="3.8" height="3"/><rect x="10" y="3" width="3.8" height="3"/><rect x="15" y="11" width="3.8" height="3"/><rect x="15" y="7" width="3.8" height="3"/><rect x="20" y="11" width="3.8" height="3"/></g></svg><span style="font-weight:800">Deezer</span></span></div></div>
-      <div class="node"><div class="bubble"><span class="lbl"><svg viewBox="0 0 24 24" width="20"><path d="M6 19L12 5l6 14" fill="none" stroke="#7B2FF7" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/><path d="M8.4 14h7.2" stroke="#7B2FF7" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="11.5" r="2.1" fill="#19C39C"/></svg>Anghami</span></div></div>
+      <div class="node"><div class="bubble"><span class="lbl"><svg viewBox="0 0 24 24" width="20"><path d="M6 19L12 5l6 14" fill="none" stroke="#7B2FF7" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/><path d="M8.4 14h7.2" stroke="#7B2FF7" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="11.5" r="2.1" fill="#19C39C"/></svg>أنغامي</span></div></div>
     </div>
   </div>
 </section>
@@ -504,26 +513,26 @@
   <div class="wrap">
     <div class="apply-inner" style="align-items:center">
       <div class="reveal">
-        <span class="mono">(Catalog at Scale)</span>
+        <span class="mono">(إدارة الكتالوج)</span>
         <h2 style="margin-top:12px;font-family:var(--display);font-weight:800;font-size:clamp(1.9rem,4.2vw,3rem);letter-spacing:-.025em;line-height:1.05">
-          We run the catalogs of major labels at scale, without errors.
-          </h2>
+          
+          ندير كتالوجات الشركات الكبرى بحجم ضخم، وبدون أخطاء.</h2>
         <p style="margin-top:18px;color:var(--fg-soft);font-size:1.02rem;line-height:1.7;max-width:48ch">
-          Thousands of assets, multiple territories, complex rights splits. Our team handles high-volume music catalogs with precise metadata, clean delivery, and zero tolerance for mistakes.
-          </p>
+          
+          آلاف الأصول، أسواق متعددة، تقسيمات حقوق معقّدة. فريقنا يدير كتالوجات موسيقية ضخمة ببيانات وصفية دقيقة وتسليم نظيف وبلا أي أخطاء.</p>
         <div class="steps" style="margin-top:26px">
-          <div class="step"><span class="sn"><svg viewBox="0 0 24 24" width="16" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12l5 5 11-12"/></svg></span><div><b>Bulk ingestion and metadata normalization across thousands of tracks</b></div></div>
-          <div class="step"><span class="sn"><svg viewBox="0 0 24 24" width="16" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12l5 5 11-12"/></svg></span><div><b>YouTube CMS asset linking, claiming and channel monetization</b></div></div>
-          <div class="step"><span class="sn"><svg viewBox="0 0 24 24" width="16" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12l5 5 11-12"/></svg></span><div><b>Channel growth, music pitching and rights conflict resolution</b></div></div>
+          <div class="step"><span class="sn"><svg viewBox="0 0 24 24" width="16" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12l5 5 11-12"/></svg></span><div><b>إدخال جماعي وتوحيد البيانات الوصفية عبر آلاف التراكات</b></div></div>
+          <div class="step"><span class="sn"><svg viewBox="0 0 24 24" width="16" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12l5 5 11-12"/></svg></span><div><b>ربط أصول YouTube CMS والمطالبة وتحقيق الدخل من القنوات</b></div></div>
+          <div class="step"><span class="sn"><svg viewBox="0 0 24 24" width="16" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12l5 5 11-12"/></svg></span><div><b>تنمية القنوات وترشيح الموسيقى وحل نزاعات الحقوق</b></div></div>
         </div>
       </div>
       <div class="form-card reveal" style="padding:30px">
-        <div style="display:flex;justify-content:space-between;padding:16px 0;border-bottom:1px solid var(--line)"><span style="color:var(--fg-soft);font-size:.92rem">Tracks under management</span><span class="metal-text" style="font-family:var(--display);font-weight:700;font-size:1.4rem">50,000+</span></div>
-        <div style="display:flex;justify-content:space-between;padding:16px 0;border-bottom:1px solid var(--line)"><span style="color:var(--fg-soft);font-size:.92rem">Delivery platforms</span><span class="metal-text" style="font-family:var(--display);font-weight:700;font-size:1.4rem">30+</span></div>
-        <div style="display:flex;justify-content:space-between;padding:16px 0;border-bottom:1px solid var(--line)"><span style="color:var(--fg-soft);font-size:.92rem">Metadata accuracy</span><span class="metal-text" style="font-family:var(--display);font-weight:700;font-size:1.4rem">99.7%</span></div>
-        <div style="display:flex;justify-content:space-between;padding:16px 0"><span style="color:var(--fg-soft);font-size:.92rem">Avg. review turnaround</span><span class="metal-text" style="font-family:var(--display);font-weight:700;font-size:1.4rem">&lt; 24h</span></div>
+        <div style="display:flex;justify-content:space-between;padding:16px 0;border-bottom:1px solid var(--line)"><span style="color:var(--fg-soft);font-size:.92rem">تراكات تحت الإدارة</span><span class="metal-text" style="font-family:var(--display);font-weight:700;font-size:1.4rem">50,000+</span></div>
+        <div style="display:flex;justify-content:space-between;padding:16px 0;border-bottom:1px solid var(--line)"><span style="color:var(--fg-soft);font-size:.92rem">منصات التوصيل</span><span class="metal-text" style="font-family:var(--display);font-weight:700;font-size:1.4rem">30+</span></div>
+        <div style="display:flex;justify-content:space-between;padding:16px 0;border-bottom:1px solid var(--line)"><span style="color:var(--fg-soft);font-size:.92rem">دقة البيانات الوصفية</span><span class="metal-text" style="font-family:var(--display);font-weight:700;font-size:1.4rem">99.7%</span></div>
+        <div style="display:flex;justify-content:space-between;padding:16px 0"><span style="color:var(--fg-soft);font-size:.92rem">متوسط زمن المراجعة</span><span class="metal-text" style="font-family:var(--display);font-weight:700;font-size:1.4rem">&lt; 24h</span></div>
         <div style="height:7px;border-radius:100px;background:var(--bg-3);margin-top:18px;overflow:hidden"><i style="display:block;height:100%;width:99.7%;background:linear-gradient(90deg,var(--fg-soft),var(--fg));border-radius:100px"></i></div>
-        <div style="display:flex;justify-content:space-between;margin-top:9px;font-family:var(--mono);font-size:.68rem;color:var(--fg-faint)">Catalog health<span>99.7%</span></div>
+        <div style="display:flex;justify-content:space-between;margin-top:9px;font-family:var(--mono);font-size:.68rem;color:var(--fg-faint)">صحة الكتالوج<span>99.7%</span></div>
       </div>
     </div>
   </div>
@@ -534,42 +543,42 @@
   <div class="wrap">
     <div class="apply-inner">
       <div class="apply-left reveal">
-        <span class="mono">(Apply)</span>
-        <h2 style="margin-top:12px">Bring your music to Sout Network</h2>
-        <p>We work selectively with serious artists and labels. Send us your music and goals, our team reviews every application, and we only move forward when it is the right fit.</p>
+        <span class="mono">(قدّم)</span>
+        <h2 style="margin-top:12px">اعرض موسيقاك على Sout Network</h2>
         
+        <p>نعمل بانتقائية مع فنانين وشركات جادّين. أرسل لنا موسيقاك وأهدافك، يراجع فريقنا كل طلب، ولا نكمل إلا عندما تكون الشراكة مناسبة.</p>
         <div class="steps">
-          <div class="step"><span class="sn">1</span><div><b>Apply</b><small>Send your details and links below.</small></div></div>
-          <div class="step"><span class="sn">2</span><div><b>Review</b><small>Our team listens and evaluates the fit.</small></div></div>
-          <div class="step"><span class="sn">3</span><div><b>Decision</b><small>We may approve or decline. We will always reply.</small></div></div>
+          <div class="step"><span class="sn">1</span><div><b>قدّم</b><small>أرسل بياناتك وروابطك بالأسفل.</small></div></div>
+          <div class="step"><span class="sn">2</span><div><b>مراجعة</b><small>فريقنا يستمع ويقيّم مدى الملاءمة.</small></div></div>
+          <div class="step"><span class="sn">3</span><div><b>القرار</b><small>قد نوافق أو نعتذر. لكننا سنرد دائمًا.</small></div></div>
         </div>
       </div>
 
       <div class="form-card reveal" id="formCard">
         <div id="formInner">
-          <h3>Apply for Partnership</h3>
-          <p class="sub">Selective onboarding. We review every artist and label.</p>
+          <h3>قدّم للشراكة</h3>
+          <p class="sub">قبول انتقائي. نراجع كل فنان وشركة.</p>
           <div class="field">
-            <label>You are</label>
+            <label>أنت</label>
             <div class="roles">
-              <label class="role"><input type="radio" name="role" value="Artist" checked><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="8" r="4"/><path d="M5 21c1-4 4-6 7-6s6 2 7 6"/></svg>Artist</span></label>
-              <label class="role"><input type="radio" name="role" value="Manager"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.9"/></svg>Manager</span></label>
-              <label class="role"><input type="radio" name="role" value="Record Label"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg>Record Label</span></label>
-              <label class="role"><input type="radio" name="role" value="Distributor"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="6" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="18" r="2"/><path d="M9.6 10.6L6.3 7.3M14.4 10.6l3.3-3.3M9.6 13.4l-3.3 3.3M14.4 13.4l3.3 3.3"/></svg>Distributor</span></label>
+              <label class="role"><input type="radio" name="role" value="Artist" checked><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="8" r="4"/><path d="M5 21c1-4 4-6 7-6s6 2 7 6"/></svg>فنان</span></label>
+              <label class="role"><input type="radio" name="role" value="Manager"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.9"/></svg>مدير أعمال</span></label>
+              <label class="role"><input type="radio" name="role" value="Record Label"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg>شركة إنتاج</span></label>
+              <label class="role"><input type="radio" name="role" value="Distributor"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="6" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="18" r="2"/><path d="M9.6 10.6L6.3 7.3M14.4 10.6l3.3-3.3M9.6 13.4l-3.3 3.3M14.4 13.4l3.3 3.3"/></svg>موزّع</span></label>
             </div>
           </div>
           <div class="field-row">
-            <div class="field"><label>Full name</label><input type="text" id="f-name" placeholder="..."></div>
-            <div class="field"><label>Email</label><input type="email" id="f-email" placeholder="you@email.com"></div>
+            <div class="field"><label>الاسم الكامل</label><input type="text" id="f-name" placeholder="..."></div>
+            <div class="field"><label>البريد الإلكتروني</label><input type="email" id="f-email" placeholder="you@email.com"></div>
           </div>
-          <div class="field"><label>Music or social link</label><input type="url" id="f-link" placeholder="https://"></div>
-          <div class="field"><label>Tell us about your project</label><textarea id="f-msg" placeholder="..."></textarea></div>
-          <button class="btn btn-teal" id="submitBtn">Submit Application →</button>
-          <p class="form-note">By applying you agree to our Terms and Privacy Policy.</p>
+          <div class="field"><label>رابط موسيقى أو سوشيال</label><input type="url" id="f-link" placeholder="https://"></div>
+          <div class="field"><label>احكِ لنا عن مشروعك</label><textarea id="f-msg" placeholder="..."></textarea></div>
+          <button class="btn btn-teal" id="submitBtn">إرسال الطلب →</button>
+          <p class="form-note">بالتقديم فأنت توافق على الشروط وسياسة الخصوصية.</p>
         </div>
         <div class="form-ok" id="formOk">
-          <div class="big metal-text">Application Received</div>
-          <p>Thanks. Our team will review your details and reach out by email.</p>
+          <div class="big metal-text">تم استلام الطلب</div>
+          <p>شكرًا لك. سيراجع فريقنا بياناتك ويتواصل معك عبر البريد.</p>
         </div>
       </div>
     </div>
@@ -581,12 +590,12 @@
   <div class="modal">
     <button class="x" id="loginClose"><svg viewBox="0 0 24 24" width="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     <div class="mk"><svg viewBox="0 0 100 100" fill="none"><path d="M60 35 C75 39 78 60 61 68 C46 75 31 61 40 48 C46 39 59 41 57 53" stroke="var(--teal)" stroke-width="7.5" stroke-linecap="round"/></svg></div>
-    <h3>Client Login</h3>
-    <p class="sub">Access your distribution dashboard, reports, and payouts.</p>
-    <div class="field"><label>Email</label><input type="email" placeholder="you@email.com"></div>
-    <div class="field"><label>Password</label><input type="password" placeholder="••••••••"></div>
-    <a href="#" class="btn btn-teal" id="dashBtn">Enter Dashboard →</a>
-    <p class="hint">The dashboard will open at app.soutnetwork.com once it is live.</p>
+    <h3>دخول العملاء</h3>
+    <p class="sub">ادخل إلى لوحة التحكم والتقارير والمدفوعات.</p>
+    <div class="field"><label>البريد</label><input type="email" placeholder="you@email.com"></div>
+    <div class="field"><label>كلمة المرور</label><input type="password" placeholder="••••••••"></div>
+    <a href="#" class="btn btn-teal" id="dashBtn">دخول لوحة التحكم →</a>
+    <p class="hint">ستفتح لوحة التحكم على app.soutnetwork.com عند تفعيلها.</p>
   </div>
 </div>
 
@@ -596,7 +605,7 @@
     <div class="foot-grid">
       <div class="foot-brand">
         <div class="brand"><span class="mk"><svg viewBox="0 0 100 100" fill="none"><path d="M60 35 C75 39 78 60 61 68 C46 75 31 61 40 48 C46 39 59 41 57 53" stroke="currentColor" stroke-width="7.5" stroke-linecap="round"/></svg></span><span class="wm">Sout Network</span></div>
-        <p>Sout Network helps independent artists and labels distribute, promote, and protect their music globally, backed by fast, human support.</p>
+        <p>تساعد Sout Network الفنانين والشركات المستقلّة على توزيع وترويج وحماية موسيقاهم حول العالم، بدعم بشري سريع.</p>
         <a class="foot-mail" href="mailto:support@soutnetwork.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>support@soutnetwork.com</a>
         <div class="socials">
           <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 102.5 6 2.5 2.5 0 004.98 3.5zM3 8h4v13H3zM9 8h3.8v1.8h.05A4.2 4.2 0 0117 8c4 0 4.7 2.6 4.7 6V21h-4v-5.4c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21H9z"/></svg></a>
@@ -605,29 +614,29 @@
           <a href="mailto:support@soutnetwork.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a>
         </div>
       </div>
-      <div class="foot-col"><h4>Pages</h4>
-        <a href="#top">Home</a>
-        <a href="#services">Services</a>
-        <a href="#network">Network</a>
-        <a href="#apply">Apply</a>
-        <a href="#contact">Contact</a>
+      <div class="foot-col"><h4>الصفحات</h4>
+        <a href="#top">الرئيسية</a>
+        <a href="#services">الخدمات</a>
+        <a href="#network">الشبكة</a>
+        <a href="#apply">قدّم</a>
+        <a href="#contact">تواصل</a>
       </div>
-      <div class="foot-col"><h4>Policies</h4>
-        <a href="#">Terms and Conditions</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Copyright Policy</a>
-        <a href="#">Anti-Piracy</a>
+      <div class="foot-col"><h4>السياسات</h4>
+        <a href="#">الشروط والأحكام</a>
+        <a href="#">سياسة الخصوصية</a>
+        <a href="#">سياسة حقوق النشر</a>
+        <a href="#">مكافحة القرصنة</a>
       </div>
-      <div class="foot-col"><h4>Support</h4>
-        <a href="#apply">Apply for Partnership</a>
-        <a href="mailto:support@soutnetwork.com">Support Email</a>
-        <a href="#" id="loginBtn2">Client Login</a>
-        <a href="#">FAQ</a>
+      <div class="foot-col"><h4>الدعم</h4>
+        <a href="#apply">قدّم للشراكة</a>
+        <a href="mailto:support@soutnetwork.com">بريد الدعم</a>
+        <a href="#" id="loginBtn2">دخول العملاء</a>
+        <a href="#">الأسئلة الشائعة</a>
       </div>
     </div>
     <div class="foot-bottom">
-      <span>© 2026 Sout Network. All rights reserved.</span>
-      <span class="tag">A global music and entertainment network</span>
+      <span>© 2026 Sout Network. جميع الحقوق محفوظة.</span>
+      <span class="tag">شبكة موسيقى وترفيه عالمية</span>
     </div>
   </div>
 </footer>
@@ -645,7 +654,7 @@
   });
 
   /* ---- LANGUAGE (navigate to the other localized page) ---- */
-  document.getElementById('langBtn').addEventListener('click', ()=>{ window.location.href='ar.html'; });
+  document.getElementById('langBtn').addEventListener('click', ()=>{ window.location.href='index.html'; });
 
   /* ---- STICKY NAV ---- */
   const hdr = document.getElementById('hdr');
@@ -713,7 +722,7 @@
     const name = document.getElementById('f-name').value.trim();
     const email = document.getElementById('f-email').value.trim();
     if(!name || !email){
-      const o=btn.textContent; btn.textContent='Add name & email →'; btn.style.background='#c0584a';
+      const o=btn.textContent; btn.textContent='أدخل الاسم والبريد →'; btn.style.background='#c0584a';
       setTimeout(()=>{btn.textContent=o;btn.style.background='';},1700);
       return;
     }
