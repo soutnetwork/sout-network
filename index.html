@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Sout Network · Global Music Distribution & Rights</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230b0a08'/><path d='M40 74 C28 54 46 32 64 42 C76 49 72 66 56 61 L70 47' fill='none' stroke='%23c9a24b' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230b0a08'/><path d='M60 35 C75 39 78 60 61 68 C46 75 31 61 40 48 C46 39 59 41 57 53' fill='none' stroke='%23f3efe5' stroke-width='8' stroke-linecap='round'/></svg>">
 <meta name="description" content="Sout Network helps independent artists and record labels distribute, promote, and protect their music globally with fast, human support. 50,000+ tracks distributed." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,7 +16,7 @@
     --ink-3:#1a1a18;
     --paper:#f7f6f2;
     --paper-2:#eeece4;
-    --gold:#c9a24b;          
+    --gold:#c9a24b;          /* subtle accent only */
     --gold-soft:rgba(201,162,75,.16);
     --line-d:rgba(255,255,255,.12);
     --line-l:rgba(9,9,9,.1);
@@ -26,6 +26,7 @@
     --body:"Hanken Grotesk", sans-serif;
     --mono:"DM Mono", monospace;
     --r:14px;
+    /* metallic gradients */
     --metal-silver:linear-gradient(110deg,#8f8f8f 0%,#ffffff 18%,#efe6cf 32%,#fdfaf2 45%,#b6b6b6 55%,#ffffff 72%,#efe6cf 86%,#8f8f8f 100%);
     --metal-graphite:linear-gradient(110deg,#3a3a3a 0%,#0a0a0a 20%,#7a6730 38%,#121212 52%,#454545 70%,#000 86%,#3a3a3a 100%);
   }
@@ -38,6 +39,7 @@
   .wrap{max-width:1280px;margin:0 auto;padding:0 32px}
   .mono{font-family:var(--mono);text-transform:uppercase;letter-spacing:.18em;font-size:.72rem;color:var(--gold)}
 
+  /* metallic text */
   .metal{background:var(--metal-silver);background-size:220% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sheen 7s linear infinite}
   .metal-dark{background:var(--metal-graphite);background-size:220% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sheen 7s linear infinite}
   @keyframes sheen{to{background-position:220% center}}
@@ -50,9 +52,17 @@
   header.scrolled{background:rgba(9,9,9,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line-d)}
   nav{display:flex;align-items:center;justify-content:space-between;height:80px}
 
+  /* ===== LOGO — EASY TO EDIT =====================================
+     To change the NAME: edit the text "Sout Network" (nav + footer).
+     To use YOUR OWN image logo instead of the icon+text, replace the
+     whole <a class="logo">…</a> with:
+        <a href="#top" class="logo"><img src="logo.png" alt="Sout Network" style="height:36px"></a>
+     To change the ICON: edit the <svg> inside <span class="mark">.
+     To change the badge color: edit .logo .mark { background } below.
+  ================================================================ */
   .logo{display:flex;align-items:center;gap:11px;font-family:var(--display);font-weight:800;font-size:1.35rem;letter-spacing:-.02em}
   .logo .mark{width:34px;height:34px;display:grid;place-items:center;background:linear-gradient(150deg,#fff,#bdbdbd 55%,#7d7d7d);border-radius:9px;color:var(--ink);box-shadow:0 1px 0 rgba(255,255,255,.6) inset}
-  .logo .mark svg{width:22px;height:22px}
+  .logo .mark svg{width:20px;height:20px}
   .logo .word{background:var(--metal-silver);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent}
 
   .nav-links{display:flex;gap:34px;align-items:center}
@@ -91,4 +101,348 @@
   .marquee{border-top:1px solid var(--line-d);border-bottom:1px solid var(--line-d);background:var(--ink-2);overflow:hidden;padding:20px 0}
   .marquee-track{display:flex;gap:60px;white-space:nowrap;animation:scroll 28s linear infinite;width:max-content}
   .marquee-track span{font-family:var(--display);font-weight:700;font-size:1.05rem;letter-spacing:.04em;color:var(--muted-l);text-transform:uppercase;display:flex;align-items:center;gap:60px}
-  .marquee-track span::after{content:"◆";color:var(--gold);font-size:.7rem
+  .marquee-track span::after{content:"◆";color:var(--gold);font-size:.7rem}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+
+  section{position:relative}
+  .sec-head{margin-bottom:56px;max-width:780px}
+  .sec-head h2{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:-.02em;line-height:.98;font-size:clamp(2.1rem,4.6vw,3.7rem);margin-top:16px}
+  .sec-head p{margin-top:18px;color:var(--muted-l);font-size:1.05rem;line-height:1.6;max-width:60ch}
+
+  /* ===== SERVICES (light) ===== */
+  .services{padding:130px 0;background:var(--paper);color:var(--ink)}
+  .services .mono{color:#9a7d33}
+  .services .sec-head p{color:var(--muted-d)}
+  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-l);border:1px solid var(--line-l);border-radius:var(--r);overflow:hidden}
+  .svc{background:var(--paper);padding:40px 34px;position:relative;transition:.4s ease;min-height:280px;display:flex;flex-direction:column}
+  .svc:hover{background:var(--ink);color:var(--paper)}
+  .svc-num{font-family:var(--mono);font-size:.72rem;color:#9a7d33;letter-spacing:.1em}
+  .svc:hover .svc-num{color:var(--gold)}
+  .svc-ico{width:46px;height:46px;margin:26px 0 22px;color:#2a2a2a;transition:.4s}
+  .svc:hover .svc-ico{color:#fff;transform:scale(1.08) rotate(-4deg);filter:drop-shadow(0 0 10px rgba(255,255,255,.3))}
+  .svc h3{font-family:var(--display);font-weight:700;font-size:1.5rem;letter-spacing:-.01em;line-height:1.05}
+  .svc p{margin-top:14px;font-size:.95rem;line-height:1.6;color:var(--muted-d);flex:1}
+  .svc:hover p{color:var(--muted-l)}
+  .svc .arrow{margin-top:18px;opacity:0;transform:translateX(-8px);transition:.4s;color:var(--gold)}
+  .svc:hover .arrow{opacity:1;transform:translateX(0)}
+
+  /* ===== CATALOG (dark) ===== */
+  .catalog{padding:130px 0;background:var(--ink);position:relative;overflow:hidden}
+  .catalog-glow{position:absolute;right:-200px;top:50%;transform:translateY(-50%);width:640px;height:640px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.07),transparent 65%);filter:blur(10px)}
+  .cat-inner{display:grid;grid-template-columns:1.1fr .9fr;gap:70px;align-items:center;position:relative;z-index:2}
+  .cat-inner h2{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(2rem,4.4vw,3.5rem);line-height:.98;letter-spacing:-.02em}
+  .cat-inner p{margin-top:24px;color:var(--muted-l);font-size:1.08rem;line-height:1.7;max-width:48ch}
+  .cat-feats{margin-top:30px;display:flex;flex-direction:column;gap:14px}
+  .cat-feat{display:flex;gap:14px;align-items:flex-start;font-size:.98rem}
+  .cat-feat .tick{flex:none;width:22px;height:22px;border-radius:6px;background:rgba(255,255,255,.08);color:#fff;display:grid;place-items:center;margin-top:1px}
+  .cat-card{background:linear-gradient(155deg,var(--ink-3),#0a0a0a);border:1px solid var(--line-d);border-radius:20px;padding:38px;position:relative;overflow:hidden}
+  .cat-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#fff,var(--gold),#fff,transparent)}
+  .cat-row{display:flex;justify-content:space-between;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--line-d)}
+  .cat-row:last-child{border-bottom:none}
+  .cat-row .k{color:var(--muted-l);font-size:.92rem}
+  .cat-row .v{font-family:var(--display);font-weight:700;font-size:1.5rem}
+  .cat-bar{height:7px;border-radius:100px;background:rgba(255,255,255,.1);margin-top:26px;overflow:hidden}
+  .cat-bar i{display:block;height:100%;width:99.7%;background:linear-gradient(90deg,#8f8f8f,#fff,var(--gold));border-radius:100px}
+  .cat-bar-lbl{display:flex;justify-content:space-between;margin-top:10px;font-family:var(--mono);font-size:.72rem;color:var(--muted-l);letter-spacing:.06em}
+
+  /* ===== PARTNERS (light) ===== */
+  .partners{padding:130px 0;background:var(--paper);color:var(--ink)}
+  .partners .mono{color:#9a7d33}
+  .partners .sec-head p{color:var(--muted-d)}
+  .plat-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+  .plat{aspect-ratio:1.5/1;border:1px solid var(--line-l);border-radius:var(--r);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;cursor:pointer;transition:.4s cubic-bezier(.2,.7,.3,1);background:#fbfaf6;position:relative;overflow:hidden}
+  .plat svg{width:44px;height:44px;color:rgba(9,9,9,.3);transition:.4s}
+  .plat span{font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(9,9,9,.4);transition:.4s}
+  .plat::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 40%,rgba(255,255,255,.22),transparent 70%);opacity:0;transition:.4s}
+  .plat:hover{border-color:var(--gold);background:var(--ink);transform:translateY(-6px);box-shadow:0 22px 44px -18px rgba(0,0,0,.6),0 0 0 1px var(--gold-soft)}
+  .plat:hover svg{color:#fff;filter:drop-shadow(0 0 9px rgba(255,255,255,.55)) drop-shadow(0 0 14px rgba(201,162,75,.4));transform:scale(1.1)}
+  .plat:hover span{color:var(--gold)}
+  .plat:hover::after{opacity:1}
+
+  /* ===== APPLY (dark) ===== */
+  .apply{padding:130px 0;background:var(--ink);position:relative;overflow:hidden}
+  .apply-glow{position:absolute;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.07),transparent 64%);top:-300px;left:50%;transform:translateX(-50%)}
+  .apply-inner{display:grid;grid-template-columns:.95fr 1.05fr;gap:64px;position:relative;z-index:2}
+  .apply-left h2{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(2.2rem,4.8vw,3.8rem);line-height:.96;letter-spacing:-.02em}
+  .apply-left p{margin-top:22px;color:var(--muted-l);font-size:1.05rem;line-height:1.7;max-width:42ch}
+  .apply-steps{margin-top:34px;display:flex;flex-direction:column;gap:20px}
+  .step{display:flex;gap:18px;align-items:flex-start}
+  .step .n{flex:none;width:40px;height:40px;border-radius:10px;border:1px solid var(--line-d);display:grid;place-items:center;font-family:var(--display);font-weight:700}
+  .step .t b{display:block;font-weight:600;font-size:1rem}
+  .step .t small{color:var(--muted-l);font-size:.9rem;display:block;margin-top:3px}
+  .apply-form{background:linear-gradient(155deg,var(--ink-3),#0a0a0a);border:1px solid var(--line-d);border-radius:20px;padding:38px}
+  .apply-form h3{font-family:var(--display);font-weight:700;font-size:1.35rem;margin-bottom:6px}
+  .apply-form .sub{color:var(--muted-l);font-size:.9rem;margin-bottom:26px}
+  .field{margin-bottom:18px}
+  .field label{display:block;font-family:var(--mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted-l);margin-bottom:8px}
+  .field input,.field select,.field textarea{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--line-d);border-radius:10px;padding:13px 15px;color:var(--paper);font-family:var(--body);font-size:.95rem;transition:.25s;outline:none}
+  .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--gold);background:rgba(255,255,255,.06)}
+  .field textarea{resize:vertical;min-height:90px}
+  .field select option{background:var(--ink)}
+  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .apply-form .btn{width:100%;justify-content:center;padding:15px;font-size:1rem;margin-top:6px}
+  .form-note{font-size:.78rem;color:var(--muted-l);margin-top:14px;text-align:center}
+  .form-ok{display:none;text-align:center;padding:50px 20px}
+  .form-ok .big{font-family:var(--display);font-weight:800;font-size:1.8rem;text-transform:uppercase}
+  .form-ok p{color:var(--muted-l);margin-top:12px}
+
+  /* ===== FOOTER (light) ===== */
+  footer{background:var(--paper);color:var(--ink);padding:90px 0 0}
+  .foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px}
+  .foot-brand .logo .word{background:var(--metal-graphite);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent}
+  .foot-brand .logo .mark{background:linear-gradient(150deg,#1f1f1f,#000)}
+  .foot-brand .logo .mark svg{color:#fff}
+  .foot-brand .logo{font-size:1.4rem}
+  .foot-brand p{margin-top:20px;color:var(--muted-d);font-size:.95rem;line-height:1.65;max-width:34ch}
+  .socials{display:flex;gap:12px;margin-top:26px}
+  .socials a{width:42px;height:42px;border-radius:10px;background:rgba(9,9,9,.06);display:grid;place-items:center;color:#2a2a2a;transition:.3s}
+  .socials a:hover{background:var(--ink);color:#fff;transform:translateY(-3px)}
+  .socials a svg{width:18px;height:18px}
+  .foot-col h4{font-family:var(--display);font-weight:700;font-size:1.25rem;margin-bottom:22px}
+  .foot-col a{display:block;color:var(--muted-d);font-size:.95rem;margin-bottom:15px;transition:.25s}
+  .foot-col a:hover{color:var(--ink);padding-left:5px}
+  .foot-bottom{margin-top:70px;background:var(--paper-2);border-radius:18px 18px 0 0;padding:26px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+  .foot-bottom span{color:var(--muted-d);font-size:.9rem}
+  .foot-bottom .place{font-family:var(--mono);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:#9a7d33;display:flex;align-items:center;gap:8px}
+
+  .reveal{opacity:0;transform:translateY(30px);transition:.8s cubic-bezier(.2,.7,.3,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:1000px){
+    .svc-grid{grid-template-columns:repeat(2,1fr)}
+    .plat-grid{grid-template-columns:repeat(3,1fr)}
+    .cat-inner,.apply-inner{grid-template-columns:1fr;gap:48px}
+    .foot-grid{grid-template-columns:1fr 1fr;gap:40px 24px}
+  }
+  @media(max-width:680px){
+    .wrap{padding:0 20px}
+    .nav-links{display:none}.nav-right .btn-ghost{display:none}.burger{display:flex}
+    .svc-grid{grid-template-columns:1fr}.plat-grid{grid-template-columns:repeat(2,1fr)}
+    .field-row{grid-template-columns:1fr}.stats{gap:32px}.foot-grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header id="hdr">
+  <div class="wrap">
+    <nav>
+      <!-- ===== LOGO (edit me — see notes in CSS above) ===== -->
+      <a href="#top" class="logo">
+        <span class="mark">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M16.8 7.6c0-2-2.1-3.1-4.8-3.1-2.8 0-4.7 1.4-4.7 3.4 0 2.2 2.2 3 4.7 3.7 2.6.7 4.8 1.4 4.8 3.6 0 2.1-2.1 3.5-4.9 3.5-2.6 0-4.6-1.2-4.8-3.3" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="word">Sout Network</span>
+      </a>
+      <div class="nav-links">
+        <a href="#services">What We Do</a>
+        <a href="#catalog">Catalog</a>
+        <a href="#partners">Partners</a>
+        <a href="#apply">Apply</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="nav-right">
+        <span class="lang">EN</span>
+        <a href="#contact" class="btn btn-ghost">Contact</a>
+        <a href="#apply" class="btn btn-metal">Apply Now →</a>
+        <div class="burger" id="burger"><span></span><span></span><span></span></div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-glow"></div>
+  <div class="hero-glow two"></div>
+  <div class="hero-grid-bg"></div>
+  <div class="wrap">
+    <div class="hero-tag reveal"><span class="dot"></span><span class="mono" style="color:var(--muted-l)">Music-first · Worldwide</span></div>
+    <h1 class="reveal"><span class="metal">Distribute. Promote. Protect your music.</span></h1>
+    <p class="lede reveal">Sout Network helps independent artists and record labels distribute, promote, and protect their music globally, backed by fast, human support that actually answers.</p>
+    <div class="hero-cta reveal">
+      <a href="#apply" class="btn btn-metal">Apply for Partnership →</a>
+      <a href="#services" class="btn btn-ghost">Explore What We Do</a>
+    </div>
+    <div class="stats">
+      <div class="stat reveal"><div class="num metal">50,000+</div><div class="lbl">Tracks distributed</div></div>
+      <div class="stat reveal"><div class="num metal">30+</div><div class="lbl">Platforms delivered</div></div>
+      <div class="stat reveal"><div class="num metal">Worldwide</div><div class="lbl">Borderless reach</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span>Music Distribution</span><span>Rights Protection</span><span>Anti-Piracy</span><span>YouTube CMS</span><span>Editorial Pitching</span><span>Publishing Admin</span><span>Catalog Management</span>
+    <span>Music Distribution</span><span>Rights Protection</span><span>Anti-Piracy</span><span>YouTube CMS</span><span>Editorial Pitching</span><span>Publishing Admin</span><span>Catalog Management</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="mono">(What We Do)</span>
+      <h2 class="metal-dark">Everything your release needs, in one team</h2>
+      <p>A music-first network with selective work across the wider entertainment space. From delivery to protection, we handle the operations so artists and labels can focus on the music.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc reveal"><span class="svc-num">01</span><div class="svc-ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="24" cy="24" r="18"/><path d="M24 6c5 4 8 11 8 18s-3 14-8 18M24 6c-5 4-8 11-8 18s3 14 8 18M7 18h34M7 30h34"/></svg></div><h3>Global Distribution</h3><p>Deliver releases to 30+ platforms with clear timelines and consistent metadata handling.</p><span class="arrow">→</span></div>
+      <div class="svc reveal"><span class="svc-num">02</span><div class="svc-ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M8 32V20l16-9v26L8 28"/><path d="M24 17c5 1 9 4 9 7s-4 6-9 7M24 13c8 1 14 5 14 11s-6 10-14 11"/></svg></div><h3>Promotion Support</h3><p>Grow audience through editorial pitching, campaign planning, and release strategy guidance.</p><span class="arrow">→</span></div>
+      <div class="svc reveal"><span class="svc-num">03</span><div class="svc-ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"><path d="M24 5l15 6v11c0 10-6 16-15 21-9-5-15-11-15-21V11z"/><path d="M17 24l5 5 9-10"/></svg></div><h3>Rights Protection</h3><p>Protect catalogue with platform rights tooling and proactive anti-fraud &amp; anti-piracy monitoring.</p><span class="arrow">→</span></div>
+      <div class="svc reveal"><span class="svc-num">04</span><div class="svc-ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="24" cy="24" r="18"/><path d="M24 13v11l8 5"/></svg></div><h3>Fast Release Review</h3><p>Move quickly with predictable release QA and fast turnaround from real people.</p><span class="arrow">→</span></div>
+      <div class="svc reveal"><span class="svc-num">05</span><div class="svc-ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"><path d="M10 6h20l8 8v28H10z"/><path d="M30 6v8h8M17 25h14M17 32h14"/></svg></div><h3>Publishing Administration</h3><p>Claim more publishing revenue with structured rights registration and collection support.</p><span class="arrow">→</span></div>
+      <div class="svc reveal"><span class="svc-num">06</span><div class="svc-ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M24 28a8 8 0 100-16 8 8 0 000 16z"/><path d="M10 40c1-7 6-11 14-11s13 4 14 11"/></svg></div><h3>Human-First Support</h3><p>Get fast responses from a team that understands artists, labels, and release operations.</p><span class="arrow">→</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CATALOG -->
+<section class="catalog" id="catalog">
+  <div class="catalog-glow"></div>
+  <div class="wrap">
+    <div class="cat-inner">
+      <div class="reveal">
+        <span class="mono">(Catalog Management)</span>
+        <h2 style="margin-top:14px"><span class="metal">We run the catalogs of major labels at scale, without errors.</span></h2>
+        <p>Thousands of assets, multiple territories, complex rights splits. Our catalog team handles high-volume music catalogs for large companies with precise metadata, clean delivery, and zero tolerance for mistakes.</p>
+        <div class="cat-feats">
+          <div class="cat-feat"><span class="tick"><svg viewBox="0 0 24 24" width="13" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-11"/></svg></span> Bulk ingestion &amp; metadata normalization across thousands of tracks</div>
+          <div class="cat-feat"><span class="tick"><svg viewBox="0 0 24 24" width="13" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-11"/></svg></span> YouTube CMS asset linking, claiming &amp; channel monetization</div>
+          <div class="cat-feat"><span class="tick"><svg viewBox="0 0 24 24" width="13" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-11"/></svg></span> Channel growth, music pitching &amp; rights conflict resolution</div>
+        </div>
+      </div>
+      <div class="cat-card reveal">
+        <div class="cat-row"><span class="k">Tracks under management</span><span class="v metal">50,000+</span></div>
+        <div class="cat-row"><span class="k">Delivery platforms</span><span class="v metal">30+</span></div>
+        <div class="cat-row"><span class="k">Metadata accuracy</span><span class="v metal">99.7%</span></div>
+        <div class="cat-row"><span class="k">Avg. review turnaround</span><span class="v metal">&lt; 24h</span></div>
+        <div class="cat-bar"><i></i></div>
+        <div class="cat-bar-lbl"><span>Catalog health</span><span>99.7%</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<section class="partners" id="partners">
+  <div class="wrap">
+    <div class="sec-head reveal" style="text-align:center;margin:0 auto 56px">
+      <span class="mono">(Our Partners)</span>
+      <h2 class="metal-dark">Delivered everywhere people listen</h2>
+      <p style="margin-left:auto;margin-right:auto">A trusted distribution partner across the platforms that matter, including an official YouTube CMS partnership.</p>
+    </div>
+    <div class="plat-grid">
+      <div class="plat"><svg viewBox="0 0 48 48" fill="currentColor"><path d="M44 16.2a5 5 0 00-3.5-3.6C37.4 11.8 24 11.8 24 11.8s-13.4 0-16.5.8A5 5 0 004 16.2 52 52 0 003.2 24 52 52 0 004 31.8a5 5 0 003.5 3.6c3.1.8 16.5.8 16.5.8s13.4 0 16.5-.8a5 5 0 003.5-3.6A52 52 0 0044.8 24 52 52 0 0044 16.2zM19.8 30V18l10.4 6z"/></svg><span>YouTube</span></div>
+      <div class="plat"><svg viewBox="0 0 48 48" fill="currentColor"><path d="M24 4a20 20 0 100 40 20 20 0 000-40zm9.3 28.9a1.6 1.6 0 01-2.2.5c-6-3.7-13.6-4.5-22.5-2.5a1.6 1.6 0 11-.7-3.1c9.7-2.2 18.1-1.3 24.8 2.9.8.5 1 1.5.6 2.2zm2.5-5.5a2 2 0 01-2.7.6c-6.9-4.2-17.3-5.4-25.5-3a2 2 0 11-1.1-3.8c9.3-2.7 20.8-1.3 28.7 3.5.9.6 1.2 1.8.6 2.7zm.2-5.7C30.4 17 18.5 16.6 11.6 18.7a2.4 2.4 0 11-1.4-4.6c7.9-2.4 21-1.9 29.2 3a2.4 2.4 0 01-2.5 4z"/></svg><span>Spotify</span></div>
+      <div class="plat"><svg viewBox="0 0 48 48" fill="currentColor"><path d="M38 7l-19 4.2v20.6A7 7 0 1022 37V19l13-2.8v9.6A7 7 0 1038 32V7z"/></svg><span>Apple Music</span></div>
+      <div class="plat"><svg viewBox="0 0 48 48" fill="currentColor"><circle cx="24" cy="24" r="19" fill="none" stroke="currentColor" stroke-width="3"/><path d="M31 16l-11 2.3v13A4.7 4.7 0 1023 35V22.3l8-1.6z"/></svg><span>Amazon Music</span></div>
+      <div class="plat"><svg viewBox="0 0 48 48" fill="currentColor"><rect x="28" y="12" width="9" height="5" rx="1"/><rect x="39" y="12" width="7" height="5" rx="1"/><rect x="39" y="20" width="7" height="5" rx="1"/><rect x="17" y="28" width="9" height="5" rx="1"/><rect x="28" y="28" width="9" height="5" rx="1"/><rect x="39" y="28" width="7" height="5" rx="1"/><rect x="2" y="36" width="9" height="5" rx="1"/><rect x="13" y="36" width="9" height="5" rx="1"/><rect x="24" y="36" width="9" height="5" rx="1"/><rect x="35" y="36" width="9" height="5" rx="1"/></svg><span>Deezer</span></div>
+      <div class="plat"><svg viewBox="0 0 48 48" fill="currentColor"><path d="M29 6c1 4.5 4 7.8 8.5 8.4v6c-3.2 0-6.2-1-8.7-2.9v12.7a12 12 0 11-12-12c.7 0 1.4 0 2 .2v6.4a5.8 5.8 0 102 4.4V6z"/></svg><span>TikTok</span></div>
+      <div class="plat"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3"><rect x="7" y="7" width="34" height="34" rx="11"/><circle cx="24" cy="24" r="8.5"/><circle cx="33.5" cy="14.5" r="2" fill="currentColor" stroke="none"/></svg><span>Instagram</span></div>
+      <div class="plat"><svg viewBox="0 0 48 48" fill="currentColor"><circle cx="24" cy="24" r="19" fill="none" stroke="currentColor" stroke-width="3"/><rect x="15" y="21" width="3.6" height="9" rx="1.8"/><rect x="21.2" y="15" width="3.6" height="18" rx="1.8"/><rect x="27.4" y="18.5" width="3.6" height="11" rx="1.8"/></svg><span>Anghami</span></div>
+      <div class="plat"><svg viewBox="0 0 48 48" fill="currentColor"><path d="M14 8l8 8-8 8-8-8zM34 8l8 8-8 8-8-8zM24 18l8 8-8 8-8-8z"/></svg><span>Tidal</span></div>
+      <div class="plat"><svg viewBox="0 0 48 48" fill="currentColor"><rect x="4" y="24" width="2.8" height="11" rx="1.4"/><rect x="9" y="20" width="2.8" height="15" rx="1.4"/><rect x="14" y="16" width="2.8" height="19" rx="1.4"/><rect x="19" y="22" width="2.8" height="13" rx="1.4"/><rect x="24" y="18" width="2.8" height="17" rx="1.4"/><path d="M30 20a9 9 0 019 9v6H30z"/></svg><span>SoundCloud</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- APPLY -->
+<section class="apply" id="apply">
+  <div class="apply-glow"></div>
+  <div class="wrap">
+    <div class="apply-inner">
+      <div class="apply-left reveal">
+        <span class="mono">(Apply)</span>
+        <h2 style="margin-top:14px"><span class="metal">Bring your music to Sout Network</span></h2>
+        <p>We work selectively with serious artists and labels. Send us your music and goals, our team reviews every application, and we only move forward when it is the right fit.</p>
+        <div class="apply-steps">
+          <div class="step"><span class="n metal">1</span><div class="t"><b>Apply</b><small>Send your details and links below.</small></div></div>
+          <div class="step"><span class="n metal">2</span><div class="t"><b>Review</b><small>Our team evaluates your catalog and fit, fast.</small></div></div>
+          <div class="step"><span class="n metal">3</span><div class="t"><b>Onboard</b><small>We set up distribution, rights, and your dashboard.</small></div></div>
+        </div>
+      </div>
+      <div class="apply-form reveal" id="formCard">
+        <div id="formInner">
+          <h3>Apply for Partnership</h3>
+          <p class="sub">Independent artists &amp; record labels welcome.</p>
+          <div class="field-row">
+            <div class="field"><label>Full name</label><input type="text" id="f-name" placeholder="Your name" /></div>
+            <div class="field"><label>Email</label><input type="email" id="f-email" placeholder="you@email.com" /></div>
+          </div>
+          <div class="field-row">
+            <div class="field"><label>You are a</label><select id="f-type"><option>Independent Artist</option><option>Record Label</option><option>Manager</option><option>Other</option></select></div>
+            <div class="field"><label>Catalog size</label><select id="f-size"><option>1-10 tracks</option><option>11-100 tracks</option><option>100-1,000 tracks</option><option>1,000+ tracks</option></select></div>
+          </div>
+          <div class="field"><label>Music / social link</label><input type="url" id="f-link" placeholder="https://" /></div>
+          <div class="field"><label>Tell us about your project</label><textarea id="f-msg" placeholder="Genre, goals, release plans…"></textarea></div>
+          <button class="btn btn-metal" id="submitBtn">Submit Application →</button>
+          <p class="form-note">By applying you agree to our Terms &amp; Privacy Policy.</p>
+        </div>
+        <div class="form-ok" id="formOk">
+          <div class="big metal">Application Received</div>
+          <p>Thanks. Our team will review your details and reach out by email soon.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <!-- ===== FOOTER LOGO (edit me too) ===== -->
+        <div class="logo">
+          <span class="mark"><svg viewBox="0 0 24 24" fill="none"><path d="M16.8 7.6c0-2-2.1-3.1-4.8-3.1-2.8 0-4.7 1.4-4.7 3.4 0 2.2 2.2 3 4.7 3.7 2.6.7 4.8 1.4 4.8 3.6 0 2.1-2.1 3.5-4.9 3.5-2.6 0-4.6-1.2-4.8-3.3" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span class="word">Sout Network</span>
+        </div>
+        <p>Sout Network helps independent artists and labels distribute, promote, and protect their music globally, backed by fast, human support.</p>
+        <div class="socials">
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 102.5 6 2.5 2.5 0 004.98 3.5zM3 8h4v13H3zM9 8h3.8v1.8h.05A4.2 4.2 0 0117 8c4 0 4.7 2.6 4.7 6V21h-4v-5.4c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21H9z"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5a3 3 0 00-2.1-2.1C19 4.9 12 4.9 12 4.9s-7 0-8.9.5A3 3 0 001 7.5 31 31 0 00.5 12 31 31 0 001 16.5a3 3 0 002.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 002.1-2.1A31 31 0 0023.5 12 31 31 0 0023 7.5zM9.8 15.3V8.7l5.7 3.3z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-col"><h4>Pages</h4><a href="#top">Home</a><a href="#services">What We Do</a><a href="#catalog">Catalog</a><a href="#partners">Partners</a><a href="#apply">Apply</a><a href="#contact">Contact</a></div>
+      <div class="foot-col"><h4>Policies</h4><a href="#">Terms &amp; Conditions</a><a href="#">Privacy Policy</a><a href="#">Anti-Fraud Policy</a><a href="#">Copyright Policy</a><a href="#">Copyright Infringement</a></div>
+      <div class="foot-col"><h4>Support</h4><a href="#apply">Contact Team</a><a href="#apply">Apply for Partnership</a><a href="#">Support Email</a><a href="#">FAQ</a></div>
+    </div>
+    <div class="foot-bottom">
+      <span>Copyright © 2026 Sout Network. All rights reserved.</span>
+      <span class="place"><svg viewBox="0 0 24 24" width="13" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg> A global music &amp; entertainment network</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const hdr = document.getElementById('hdr');
+  addEventListener('scroll', () => hdr.classList.toggle('scrolled', scrollY > 30));
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) { e.target.style.transitionDelay = (i % 4) * 0.08 + 's'; e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  const btn = document.getElementById('submitBtn');
+  btn && btn.addEventListener('click', () => {
+    const name = document.getElementById('f-name').value.trim();
+    const email = document.getElementById('f-email').value.trim();
+    if (!name || !email) {
+      btn.textContent = 'Please add your name & email';
+      btn.style.background = '#c0584a'; btn.style.color = '#fff';
+      setTimeout(() => { btn.textContent = 'Submit Application →'; btn.style.background = ''; btn.style.color = ''; }, 1800);
+      return;
+    }
+    document.getElementById('formInner').style.display = 'none';
+    document.getElementById('formOk').style.display = 'block';
+  });
+  document.getElementById('burger').addEventListener('click', () => document.getElementById('services').scrollIntoView({ behavior: 'smooth' }));
+</script>
+</body>
+</html>
