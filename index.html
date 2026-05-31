@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sout Network · Global Music Distribution & Rights</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230b0a08'/><path d='M40 74 C28 54 46 32 64 42 C76 49 72 66 56 61 L70 47' fill='none' stroke='%23c9a24b' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+<meta name="description" content="Sout Network helps independent artists and record labels distribute, promote, and protect their music globally with fast, human support. 50,000+ tracks distributed." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#090909;
+    --ink-2:#121212;
+    --ink-3:#1a1a18;
+    --paper:#f7f6f2;
+    --paper-2:#eeece4;
+    --gold:#c9a24b;          
+    --gold-soft:rgba(201,162,75,.16);
+    --line-d:rgba(255,255,255,.12);
+    --line-l:rgba(9,9,9,.1);
+    --muted-l:rgba(247,246,242,.55);
+    --muted-d:rgba(9,9,9,.55);
+    --display:"Bricolage Grotesque", sans-serif;
+    --body:"Hanken Grotesk", sans-serif;
+    --mono:"DM Mono", monospace;
+    --r:14px;
+    --metal-silver:linear-gradient(110deg,#8f8f8f 0%,#ffffff 18%,#efe6cf 32%,#fdfaf2 45%,#b6b6b6 55%,#ffffff 72%,#efe6cf 86%,#8f8f8f 100%);
+    --metal-graphite:linear-gradient(110deg,#3a3a3a 0%,#0a0a0a 20%,#7a6730 38%,#121212 52%,#454545 70%,#000 86%,#3a3a3a 100%);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--body);background:var(--ink);color:var(--paper);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  ::selection{background:var(--gold);color:var(--ink)}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:1280px;margin:0 auto;padding:0 32px}
+  .mono{font-family:var(--mono);text-transform:uppercase;letter-spacing:.18em;font-size:.72rem;color:var(--gold)}
+
+  .metal{background:var(--metal-silver);background-size:220% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sheen 7s linear infinite}
+  .metal-dark{background:var(--metal-graphite);background-size:220% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sheen 7s linear infinite}
+  @keyframes sheen{to{background-position:220% center}}
+
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.045;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+  /* ===== NAV ===== */
+  header{position:fixed;top:0;left:0;right:0;z-index:1000;transition:.4s ease}
+  header.scrolled{background:rgba(9,9,9,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line-d)}
+  nav{display:flex;align-items:center;justify-content:space-between;height:80px}
+
+  .logo{display:flex;align-items:center;gap:11px;font-family:var(--display);font-weight:800;font-size:1.35rem;letter-spacing:-.02em}
+  .logo .mark{width:34px;height:34px;display:grid;place-items:center;background:linear-gradient(150deg,#fff,#bdbdbd 55%,#7d7d7d);border-radius:9px;color:var(--ink);box-shadow:0 1px 0 rgba(255,255,255,.6) inset}
+  .logo .mark svg{width:22px;height:22px}
+  .logo .word{background:var(--metal-silver);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent}
+
+  .nav-links{display:flex;gap:34px;align-items:center}
+  .nav-links a{font-size:.86rem;font-weight:500;color:var(--muted-l);transition:.25s;position:relative}
+  .nav-links a:hover{color:var(--paper)}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;height:1px;width:0;background:var(--gold);transition:.3s}
+  .nav-links a:hover::after{width:100%}
+  .nav-right{display:flex;align-items:center;gap:18px}
+  .lang{font-family:var(--mono);font-size:.74rem;color:var(--muted-l);cursor:pointer;border:1px solid var(--line-d);padding:6px 11px;border-radius:7px;transition:.25s}
+  .lang:hover{color:var(--gold);border-color:var(--gold)}
+  .btn{font-family:var(--body);font-weight:600;font-size:.85rem;padding:11px 22px;border-radius:9px;cursor:pointer;border:none;transition:.3s;display:inline-flex;align-items:center;gap:9px}
+  .btn-metal{background:linear-gradient(150deg,#fff,#cfcfcf 55%,#9a9a9a);color:var(--ink);box-shadow:0 1px 0 rgba(255,255,255,.6) inset}
+  .btn-metal:hover{transform:translateY(-2px);box-shadow:0 14px 30px -12px rgba(255,255,255,.45),0 1px 0 rgba(255,255,255,.7) inset}
+  .btn-ghost{background:transparent;color:var(--paper);border:1px solid var(--line-d)}
+  .btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+  .burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+  .burger span{width:24px;height:2px;background:var(--paper)}
+
+  /* ===== HERO ===== */
+  .hero{position:relative;min-height:100vh;display:flex;align-items:center;padding-top:80px;overflow:hidden}
+  .hero-glow{position:absolute;width:900px;height:900px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.10),transparent 62%);top:-320px;right:-220px;filter:blur(20px);pointer-events:none}
+  .hero-glow.two{top:auto;bottom:-460px;left:-300px;right:auto;width:760px;height:760px;background:radial-gradient(circle,rgba(201,162,75,.10),transparent 62%)}
+  .hero-grid-bg{position:absolute;inset:0;opacity:.5;background-image:linear-gradient(var(--line-d) 1px,transparent 1px),linear-gradient(90deg,var(--line-d) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(circle at 70% 30%,#000,transparent 75%)}
+  .hero .wrap{position:relative;z-index:2;width:100%}
+  .hero-tag{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border:1px solid var(--line-d);border-radius:100px;margin-bottom:30px}
+  .hero-tag .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px var(--gold-soft)}
+  h1{font-family:var(--display);font-weight:800;line-height:.94;letter-spacing:-.025em;font-size:clamp(2.7rem,7.2vw,6.4rem);max-width:15ch;text-transform:uppercase}
+  .hero p.lede{margin-top:30px;max-width:50ch;font-size:1.12rem;line-height:1.65;color:var(--muted-l)}
+  .hero-cta{margin-top:38px;display:flex;gap:16px;flex-wrap:wrap}
+  .hero-cta .btn{padding:15px 30px;font-size:.95rem}
+  .stats{display:flex;gap:54px;margin-top:64px;flex-wrap:wrap}
+  .stat .num{font-family:var(--display);font-weight:800;font-size:clamp(2rem,4vw,3.1rem);letter-spacing:-.02em;line-height:1}
+  .stat .lbl{font-family:var(--mono);font-size:.72rem;color:var(--muted-l);text-transform:uppercase;letter-spacing:.14em;margin-top:8px}
+
+  /* ===== MARQUEE ===== */
+  .marquee{border-top:1px solid var(--line-d);border-bottom:1px solid var(--line-d);background:var(--ink-2);overflow:hidden;padding:20px 0}
+  .marquee-track{display:flex;gap:60px;white-space:nowrap;animation:scroll 28s linear infinite;width:max-content}
+  .marquee-track span{font-family:var(--display);font-weight:700;font-size:1.05rem;letter-spacing:.04em;color:var(--muted-l);text-transform:uppercase;display:flex;align-items:center;gap:60px}
+  .marquee-track span::after{content:"◆";color:var(--gold);font-size:.7rem}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+
+  section{position:relative}
+  .sec-head{margin-bottom:56px;max-width:780px}
+  .sec-head h2{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:-.02em;line-height:.98;font-size:clamp(2.1rem,4.6vw,3.7rem);margin-top:16px}
+  .sec-head p{margin-top:18px;color:var(--muted-l);font-size:1.05rem;line-height:1.6;max-
